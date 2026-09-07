@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "jusmanizer",
+  "description": "Skill e detector para remover traços de escrita de IA de texto jurídico pt-BR sem mudar o que ele afirma.",
+  "owner": {
+    "name": "Bruno Lima",
+    "url": "https://github.com/brunoflma"
+  },
+  "plugins": [
+    {
+      "name": "jusmanizer",
+      "source": "./",
+      "description": "Remove traços de escrita de IA de texto jurídico pt-BR sem mudar o que ele afirma."
+    }
+  ]
+}
