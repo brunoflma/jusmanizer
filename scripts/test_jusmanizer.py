@@ -89,6 +89,12 @@ check("J02 'senão vejamos:' é fórmula forense", "J02" not in ids(
 check("J02 hora não é dois-pontos de frase", "J02" not in ids("A audiência ocorreu às 14:30 na sede."))
 check("J02 URL isenta", "J02" not in ids("Disponível em https://www.stj.jus.br/portal desde 2020."))
 check("J02 rótulo no início de linha é campo, não emenda", "J02" not in ids("Autor: João da Silva"))
+check("J02 enumeração anunciada por numeral é isenta", "J02" not in ids(
+    "A apelada foi notificada em três oportunidades: em 14/03, em 20/04 e em 05/05/2026."))
+check("J02 enumeração com ponto e vírgula é isenta", "J02" not in ids(
+    "São comuns aos instrumentos: a Cláusula Segunda, que fixa o vencimento; a Terceira, que fixa a multa."))
+check("J02 emenda continua erro após as isenções", "J02" in ids(
+    "A renda locatícia existe: os vinte e oito comprovantes juntados provam o fluxo."))
 check("J02 rótulo em negrito markdown não é emenda", "J02" not in ids(
     "**Prazo:** conta-se da intimação, em dias úteis, na forma do art. 219 do CPC."))
 

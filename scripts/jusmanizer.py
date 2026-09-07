@@ -20,6 +20,18 @@ Uso como CLI:
   python jusmanizer.py peca.md --json         # a mesma análise em JSON
   python jusmanizer.py peca.md --corrigir-seguro   # aspas retas e `--` normalizado, depois analisa
 
+CALIBRAÇÃO (medida em 07/09/2026 sobre o artefato real do plugin amf-juridico)
+-----------------------------------------------------------------------------
+Peça do ciclo 8 (Razões de Apelação que o advogado aceitou como base antes de qualquer
+intervenção), corpo autoral fora de caixa e de transcrição: 10517 palavras.
+  · J01 risca: 48 (22 de emenda, 26 de aposto), 4.56 por mil.
+  · J02 dois-pontos de emenda: 73 de erro (minúscula depois) e 0 de aviso, já com
+    as isenções de enumeração (fim de parágrafo, ponto e vírgula, numeral antes), citação,
+    fórmula forense, hora, URL e rótulo. É quase o dobro das riscas: o dois-pontos era o remédio
+    que o estilo recomendava para o travessão, e virou a forma dominante da mesma emenda.
+  · Outros padrões acusados no mesmo texto: J03, J06, J09, J12, J17.
+Quem recalibrar, recalibre sobre a mesma base.
+
 Stdlib pura. Copiado para `_shared/jusmanizer.py` no plugin amf-juridico (espelho gerenciado).
 """
 from __future__ import annotations
@@ -83,6 +95,10 @@ _FORMULAS_ANTES = (
     "afirmou", "registrou", "consignou", "anotou", "sintetizou", "concluiu", "in casu",
 )
 RX_DOIS_PONTOS = re.compile(r":(?=\s|$)")
+# Numeral logo antes do dois-pontos anuncia enumeração ("em três oportunidades:", "dois
+# requisitos:", "os 4 contratos:"), mesmo quando os itens vêm na mesma linha.
+_RX_NUMERAL_ANTES = re.compile(
+    r"\b(?:dois|duas|três|tres|quatro|cinco|seis|sete|oito|nove|dez|\d+)\s+[\wÀ-ÿ-]+$", re.I | re.U)
 RX_URL = re.compile(r"https?://\S+|www\.\S+")
 RX_HORA = re.compile(r"\b\d{1,2}:\d{2}\b")
 # Rótulo de campo: até TRÊS palavras antes do dois-pontos (`Autor:`, `Valor da causa:`,
@@ -115,10 +131,14 @@ def dois_pontos_de_emenda(texto):
         antes = re.sub(r"[\s,;]+$", "", texto[:pos].lower())
         if any(antes.endswith(f) for f in _FORMULAS_ANTES):
             continue                                   # fórmula forense
+        if ";" in depois:
+            continue                                   # enumeração inline com ponto e vírgula
+        if _RX_NUMERAL_ANTES.search(antes):
+            continue                                   # "em três oportunidades:", "dois requisitos:"
         palavras_depois = _RX_PALAVRA.findall(depois)
         if depois[0].islower():
             saida.append({"inicio": pos, "fim": pos + 1, "severidade": "erro"})
-        elif len(palavras_depois) >= 6 and ";" not in depois:
+        elif len(palavras_depois) >= 6:
             saida.append({"inicio": pos, "fim": pos + 1, "severidade": "aviso"})
     return saida
 

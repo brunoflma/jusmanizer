@@ -181,7 +181,7 @@ ciclo de enxugamento devolveu uma peça mais curta e com mais travessões.
   determinístico com CLI (`--json`, `--corrigir-seguro`, `--excluir`); extração da prosa
   autoral do dialeto Visual Law AMF e de markdown comum; hífen ortográfico e intervalo numérico
   isentos; dois-pontos de emenda com isenções de enumeração, citação, fórmula forense, hora,
-  URL e rótulo; 84 testes.
+  URL e rótulo; 87 testes.
 
 ## Licença
 
