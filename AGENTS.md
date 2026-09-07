@@ -10,7 +10,9 @@ Python puro. Não há etapa de build.
 - `SKILL.md` é o produto e a única fonte do prompt. Traz o frontmatter portátil, a explicação
   de por que o texto de IA soa assim, o fluxo de trabalho e os 32 padrões em seis grupos,
   ordenados por força.
-- `README.md` explica instalação, uso, o detector, a tabela dos padrões e o histórico.
+- `README.md` é para o advogado: o problema, antes e depois, o que a ferramenta nunca faz, uso
+  diário, instalação passo a passo, as 32 regras em linguagem forense, licença e
+  responsabilidade. Sem jargão técnico no corpo.
 - `scripts/jusmanizer.py` é o detector (stdlib pura) e a CLI. `scripts/test_jusmanizer.py`
   são os testes standalone (`N PASS · M FAIL`, exit code).
 - `scripts/validate-package.py` confere a paridade do pacote.
@@ -24,9 +26,9 @@ Python puro. Não há etapa de build.
   só ganha padrão quando nenhum existente já o implica; prefira dobrar num existente. Se
   acrescentar, remover ou renumerar, atualize a tabela do README, o `PADROES` do detector
   (só os "det.") e toda referência `Jnn`. O validador deriva a contagem dos títulos.
-- **Versão.** Igual em quatro lugares: `metadata.version` do SKILL.md, a primeira entrada
-  `- **x.y.z**` do histórico do README, `version` do plugin.json e `VERSAO` do
-  `jusmanizer.py`. Não acrescente `version` de nível superior ao frontmatter.
+- **Versão.** Igual em três lugares: `metadata.version` do SKILL.md, `version` do plugin.json
+  e `VERSAO` do `jusmanizer.py`. O README é escrito para o advogado, sem versão nem histórico;
+  mudanças de comportamento ficam registradas na mensagem de commit e na tag. Não acrescente `version` de nível superior ao frontmatter.
 - **Risca na prosa.** O SKILL.md não pode ter travessão nem meia-risca fora de linha de
   exemplo (`>`), de tabela ou de trecho em código. O validador reprova.
 - **Detector.** Todo padrão detectado tem teste positivo e teste negativo (o caso legítimo que
@@ -36,7 +38,6 @@ Python puro. Não há etapa de build.
 - **Espelho.** O plugin `amf-juridico` carrega uma cópia de `scripts/jusmanizer.py` em
   `_shared/jusmanizer.py`, com cabeçalho de proveniência. A cada release do detector, recopie
   e rode `sincronizar_shared.py --sync` lá.
-- **Histórico.** Uma nota curta no README para toda mudança de comportamento.
 - **Antes de publicar:** `python scripts/test_jusmanizer.py`, `python scripts/validate-package.py`,
   `npx skills add . --list` e `claude plugin validate .`.
 

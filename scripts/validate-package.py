@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 """Confere a coerência do pacote jusmanizer.
 
-  · mesma versão em SKILL.md (metadata.version), README.md (primeira versão em negrito do
-    histórico), .claude-plugin/plugin.json e scripts/jusmanizer.py (VERSAO);
+  · mesma versão em SKILL.md (metadata.version), .claude-plugin/plugin.json e
+    scripts/jusmanizer.py (VERSAO); o README é para o advogado e não carrega versão;
   · 32 padrões numerados sem lacuna (### J01 … ### J32) no SKILL.md;
   · nenhuma risca (travessão ou meia-risca) na prosa do SKILL.md fora de linha de exemplo
     (que começa por `>`), de tabela (`|`), de frontmatter e de trecho em código;
@@ -37,12 +37,10 @@ market = json.loads(ler(".claude-plugin/marketplace.json"))
 mod = ler("scripts/jusmanizer.py")
 
 v_skill = re.search(r'^\s*version:\s*"([^"]+)"', skill, re.M)
-v_readme = re.search(r"^- \*\*(\d+\.\d+\.\d+)\*\*", readme, re.M)
 v_mod = re.search(r'^VERSAO = "([^"]+)"', mod, re.M)
-versoes = {v_skill and v_skill.group(1), v_readme and v_readme.group(1),
-           plugin.get("version"), v_mod and v_mod.group(1)}
+versoes = {v_skill and v_skill.group(1), plugin.get("version"), v_mod and v_mod.group(1)}
 if len(versoes) != 1 or None in versoes:
-    falhas.append(f"versões divergem entre SKILL.md, README.md, plugin.json e jusmanizer.py: {versoes}")
+    falhas.append(f"versões divergem entre SKILL.md, plugin.json e jusmanizer.py: {versoes}")
 
 nums = [int(m) for m in re.findall(r"^### J(\d{2})\b", skill, re.M)]
 if nums != list(range(1, 33)):

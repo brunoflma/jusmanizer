@@ -13,8 +13,8 @@ Quem lê peças todo dia aprendeu a reconhecer o texto de inteligência artifici
 mesmo sem saber explicar por quê. Alguns sinais:
 
 - Travessões em toda parte. "O réu foi notificado — e nada fez."
-- Dois-pontos no meio da frase, que era o que o travessão virava depois da primeira revisão.
-  "Não há desconhecimento possível: a apelada conhecia a conta."
+- Dois-pontos emendando duas frases. "Não há desconhecimento possível: a apelada conhecia a
+  conta."
 - "Não se trata apenas de inadimplemento, mas de má-fé contratual."
 - "Cumpre esclarecer que", "insta salientar que", "vale dizer que", três vezes por página.
 - "..., evidenciando o descumprimento e configurando a mora."
@@ -119,31 +119,48 @@ versão revisada só manteve a afirmação porque havia julgado conferido para s
 
 ## Como usar no dia a dia
 
-**1. Colando o texto.** Abra o Claude, cole a peça ou o trecho e escreva:
+Depois de instalado (veja abaixo), o Jusmanizer funciona dentro da sua conversa com o Claude.
+Não há tela nova nem botão: você pede em português.
 
+**Revisando um trecho.** Cole o texto na conversa e escreva, na mesma mensagem, o que quer:
+"jusmaniza esta contestação", "tira os travessões desta apelação" ou "revisa o estilo sem
+mudar o conteúdo". A palavra "jusmanizer" sozinha também basta. Ele devolve o rascunho
+revisado, uma lista curta do que mudou e a versão final, pronta para colar de volta na minuta.
+
+**Revisando um arquivo.** Se a minuta está salva no computador, diga onde ela está: "jusmaniza
+o texto do arquivo contestacao.md". Ele reescreve só o texto e deixa o resto do arquivo como
+estava.
+
+**Com a sua voz.** Cole dois ou três parágrafos escritos por você antes do texto a revisar e
+peça para seguir o seu estilo. Ele passa a respeitar o seu comprimento de frase, a sua
+pontuação e as suas transições. Se você usa travessão de propósito, ele mantém a mesma medida.
+
+## Como instalar
+
+Você mesmo instala, em menos de um minuto. Escolha o caminho que corresponde ao programa que
+você usa.
+
+**No Claude Code** (o Claude que trabalha com arquivos no seu computador). Na caixa de
+mensagem, digite os dois comandos abaixo, um de cada vez, e pressione Enter depois de cada um:
+
+```text
+/plugin marketplace add brunoflma/jusmanizer
 ```
-jusmaniza esta contestação
+
+```text
+/plugin install jusmanizer@jusmanizer
 ```
 
-Serve também "tira os travessões desta apelação", "revisa o estilo sem mudar o conteúdo" ou
-simplesmente "jusmanizer". Ele devolve o rascunho revisado, uma lista curta do que mudou e a
-versão final.
+Pronto. A partir da próxima conversa, basta pedir "jusmaniza este texto".
 
-**2. Apontando o arquivo.** Se a minuta está num arquivo, diga o caminho:
+**No Claude do navegador ou no aplicativo Claude.** Baixe este repositório pelo botão "Code"
+e depois "Download ZIP". Abra o arquivo baixado, localize o `SKILL.md` e envie-o em
+Configurações, na área de habilidades (Skills), usando a opção de adicionar habilidade. Depois
+disso, o pedido "jusmaniza este texto" passa a funcionar em qualquer conversa.
 
-```
-jusmaniza a prosa de minutas/contestacao.md
-```
-
-Ele reescreve só a prosa e deixa o resto do arquivo intacto.
-
-**3. Com a sua voz.** Cole dois ou três parágrafos seus antes do texto a revisar e peça para
-casar o estilo. Ele passa a seguir o seu comprimento de frase, a sua pontuação e as suas
-transições. Se você usa travessão, ele mantém a mesma medida.
-
-**4. Dentro do plugin do escritório.** No plugin `amf-juridico`, o Jusmanizer já está embutido:
-a peça passa por ele antes da revisão sênior, e o verificador final não deixa sair peça com
-travessão no corpo ou com dois-pontos emendando frases. Nenhuma instalação a mais é necessária.
+**Se preferir copiar o arquivo à mão.** Copie o `SKILL.md` deste repositório para a pasta de
+habilidades do Claude no seu computador, dentro de uma subpasta chamada `jusmanizer`. No
+Windows, a pasta é `C:\Users\SEU-USUARIO\.claude\skills\jusmanizer\`.
 
 ## As 32 regras, em linguagem de advogado
 
@@ -205,63 +222,25 @@ travessão no corpo ou com dois-pontos emendando frases. Nenhuma instalação a 
 32. Referente sempre nomeado: "isso", "o referido" e "a mesma" longe do dono viram o nome da
     coisa ("o contrato de 2019", "a notificação de 13/08/2026").
 
-## De onde vem
+## Verificador automático
 
-O Jusmanizer nasceu de três projetos abertos que estudam como o texto de inteligência
-artificial se denuncia. O [humanizer](https://github.com/blader/humanizer), de blader, deu a
-estrutura em grupos ordenados por força e a regra de nunca inventar fato. O
-[humanizer-pt-br](https://github.com/mackswendhell/humanizer-pt-br) deu o vocabulário de
-máquina em português. O [humanese](https://github.com/UDIIA/humanese) deu a regra do referente
-sempre nomeado e a cautela de só agir quando há mais de um sinal no mesmo trecho. Todos bebem
-da mesma fonte, a página [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)
-mantida pelos editores da Wikipedia que limpam texto gerado por máquina.
-
-O que nenhum deles tinha era o mundo forense: a transcrição intocável, o tratamento por grau,
-a fórmula consagrada que não é defeito, a fidelidade à fonte conferida. Isso veio da prática de
-um escritório de advocacia brasileiro que mediu, numa apelação real de dez mil palavras, 48
-travessões e 73 dois-pontos emendando frases, e decidiu que nenhum dos dois deveria sair.
-
-## Para quem instala
-
-Esta parte é para quem cuida da configuração. O advogado não precisa dela.
-
-Pela linha de comando de skills:
-
-```bash
-npx skills add brunoflma/jusmanizer --global
-```
-
-Como plugin do Claude Code:
+Para quem quer conferir um arquivo sem reescrevê-lo, o repositório traz o verificador
+`scripts/jusmanizer.py`. Ele lê o texto, aponta cada sinal que encontrou com a frase em que
+está e diz qual é o remédio. Não altera nada. Quem tem Python instalado roda assim:
 
 ```text
-/plugin marketplace add brunoflma/jusmanizer
-/plugin install jusmanizer@jusmanizer
+python scripts/jusmanizer.py peca.md
 ```
 
-Manual: copie `SKILL.md` para `~/.claude/skills/jusmanizer/SKILL.md`.
+## Licença e responsabilidade
 
-O repositório traz também um verificador automático, `scripts/jusmanizer.py`, que lista os
-sinais detectáveis por regra num arquivo de texto sem reescrever nada. Serve para quem quer
-travar a saída de um fluxo automatizado:
+O Jusmanizer é distribuído sob a licença MIT: uso, cópia e adaptação livres, sem garantia de
+qualquer natureza.
 
-```bash
-python scripts/jusmanizer.py peca.md                   # relatório; termina com erro se houver sinal grave
-python scripts/jusmanizer.py peca.md --json            # a mesma análise em formato de dados
-python scripts/jusmanizer.py peca.md --corrigir-seguro # aspas retas e hífen duplo normalizado
-```
-
-Ele cobre as regras 1, 2, 3, 5, 6, 8, 9, 10, 12, 13, 15, 16, 17, 18, 20, 21, 22, 23, 24 e 25,
-entende o dialeto Visual Law do plugin `amf-juridico` (blocos de citação, jurisprudência, capa,
-fecho e tabela ficam fora da análise) e depende só da biblioteca padrão do Python. A calibração
-foi medida sobre uma peça real e está registrada no próprio arquivo.
-
-## Histórico de versões
-
-- **1.0.0** (07/09/2026). Primeira versão. Catálogo de 32 regras em seis grupos; verificador
-  automático com relatório, saída em dados e correção segura; leitura do dialeto Visual Law e de
-  markdown comum; hífen de palavra e intervalo numérico isentos; dois-pontos com isenções de
-  enumeração, citação, fórmula forense, hora, endereço de internet e rótulo; 87 testes.
-
-## Licença
-
-MIT.
+**É uma ferramenta de apoio à redação, não um substituto do advogado.** Ela aponta e reescreve
+padrões de estilo. Não confere o direito, não valida a tese, não verifica se o julgado citado
+existe, não avalia a estratégia processual. Toda peça, parecer ou comunicado revisado com o
+Jusmanizer deve ser lido e aprovado pelo advogado que o assina, a quem cabe integralmente a
+responsabilidade pelo conteúdo, nos termos do Estatuto da Advocacia e do Código de Ética e
+Disciplina da OAB. Texto gerado ou revisado por inteligência artificial não dispensa a
+conferência humana de cada fato, cada fonte e cada pedido.
