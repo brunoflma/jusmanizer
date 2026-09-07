@@ -24,7 +24,7 @@ Python puro. Não há etapa de build.
 
 - **Padrões.** Numerados de J01 a J32 sem lacuna, do mais forte ao mais fraco. Um tell novo
   só ganha padrão quando nenhum existente já o implica; prefira dobrar num existente. Se
-  acrescentar, remover ou renumerar, atualize a tabela do README, o `PADROES` do detector
+  acrescentar, remover ou renumerar, atualize a lista do README, o `PADROES` do detector
   (só os "det.") e toda referência `Jnn`. O validador deriva a contagem dos títulos.
 - **Versão.** Igual em três lugares: `metadata.version` do SKILL.md, `version` do plugin.json
   e `VERSAO` do `jusmanizer.py`. O README é escrito para o advogado, sem versão nem histórico;
