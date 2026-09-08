@@ -9,8 +9,7 @@ description: |
   tríade forçada, atribuição vaga ("a doutrina entende"), conclusão genérica ("resta
   evidente"), negrito decorativo, aspas curvas, rastro de chat. Gatilhos: jusmanizar,
   humanizar peça, tirar travessão, remover traços de IA da petição, texto parece IA, revisar
-  estilo da peça. Baseado em blader/humanizer 3.0.0, mackswendhell/humanizer-pt-br e
-  UDIIA/humanese, adaptados ao texto jurídico.
+  estilo da peça.
 license: MIT
 metadata:
   version: "1.0.0"
@@ -514,22 +513,9 @@ python scripts/jusmanizer.py peca.md --corrigir-seguro   # aspas retas e hífen 
 python scripts/jusmanizer.py peca.md --excluir J12,J16   # ignorar padrões
 ```
 
-Ele entende o dialeto Visual Law AMF (blocos `::: citacao`, `::: jurisprudencia`, `::: capa`,
-`::: fecho`, `::: tabela` e `::: timeline` ficam de fora; parágrafo inteiro em itálico é
-transcrição) e markdown comum. A correção segura só faz o que não muda sentido: aspas curvas
-viram retas e `--` vira um travessão, que continua a ser acusado por J01 para que o redator
-decida a pontuação.
-
 ## Fontes
 
 - [blader/humanizer](https://github.com/blader/humanizer) 3.0.0: a estrutura em cinco grupos
   ordenados por força, a regra de fidelidade e a regra da risca vêm de lá.
-- [mackswendhell/humanizer-pt-br](https://github.com/mackswendhell/humanizer-pt-br) 3.0.0: o
-  vocabulário de IA em português e os exemplos em pt-BR.
-- [UDIIA/humanese](https://github.com/UDIIA/humanese): a regra do referente reintroduzido
-  (J32) e a regra de decisão "dois ou mais marcadores confirmam; zero ou um não se mexe".
 - Wikipedia, [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing),
   mantida pelo WikiProject AI Cleanup: a origem comum dos três.
-- Estilo de escrita da banca AMF (plugin `amf-juridico`, `estilo-escrita-amf.md`): a regra do
-  travessão como teste de substituição, o hífen livre, o tratamento por grau e a fidelidade à
-  fonte conferida.
