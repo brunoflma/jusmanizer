@@ -131,7 +131,7 @@ versão revisada só manteve a afirmação porque havia julgado conferido para s
 
 ## Como usar no dia a dia
 
-Depois de instalado (veja abaixo), o Jusmanizer funciona dentro da sua conversa com o Claude.
+Depois de instalado (veja abaixo), o Jusmanizer funciona dentro da conversa com o assistente que você já usa.
 Não há tela nova nem botão: você pede em português.
 
 **Revisando um trecho.** Cole o texto na conversa e escreva, na mesma mensagem, o que quer:
