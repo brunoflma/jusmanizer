@@ -1,30 +1,42 @@
 # Jusmanizer
 
-**Sua peça pode ter sido escrita com inteligência artificial. O juiz não precisa perceber.**
+**Você usa inteligência artificial para escrever. O juiz não precisa saber.**
 
-O Jusmanizer revisa petições, pareceres, contratos e comunicados a clientes e retira deles o
-sotaque de máquina, sem alterar uma vírgula do que o texto afirma: a tese, os fatos, as datas,
-os pedidos e as fontes ficam exatamente como estavam. O que sai é só o tique que denuncia a
-origem do texto. A formalidade forense fica.
+Toda peça que sai de um assistente de IA carrega um sotaque: o travessão a cada duas linhas, o
+"cumpre esclarecer que" abrindo parágrafo, o "não se trata apenas de X, mas de Y", a
+"jurisprudência pacífica" que não cita julgado nenhum. O julgador reconhece esse sotaque em
+três frases. A parte contrária também. E o cliente que recebe um comunicado assim sente que foi
+atendido por uma máquina.
 
-## O problema que você já viu
+O Jusmanizer tira o sotaque e deixa o argumento. Ele revisa petições, recursos, pareceres,
+contratos e comunicados e devolve o texto com a voz de um advogado experiente, sem alterar uma
+vírgula do que ele afirma. Tese, fatos, datas, pedidos e fontes ficam exatamente onde estavam.
+A formalidade forense fica. O que sai é só o que denuncia a origem.
 
-Quem lê peças todo dia aprendeu a reconhecer o texto de inteligência artificial em segundos,
-mesmo sem saber explicar por quê. Alguns sinais:
+Por ser uma skill, um conjunto de instruções em texto puro, o Jusmanizer funciona em qualquer
+assistente que aceite skills ou instruções personalizadas: Claude, ChatGPT, Gemini,
+Antigravity, Codex e os demais. Você instala uma vez e passa a pedir "jusmaniza este texto" onde
+quer que esteja escrevendo.
 
-- Travessões em toda parte. "O réu foi notificado — e nada fez."
-- Dois-pontos emendando duas frases. "Não há desconhecimento possível: a apelada conhecia a
-  conta."
-- "Não se trata apenas de inadimplemento, mas de má-fé contratual."
-- "Cumpre esclarecer que", "insta salientar que", "vale dizer que", três vezes por página.
-- "..., evidenciando o descumprimento e configurando a mora."
-- "A jurisprudência é pacífica", sem tribunal, sem número, sem data.
-- "Diante de todo o exposto, resta evidente a procedência."
-- Listas de três qualidades por reflexo: "célere, eficaz e segura".
+## Reconhece algum destes?
 
-Cada um deles, isolado, pode aparecer no texto de qualquer advogado. Juntos, eles formam um
-sotaque. E sotaque de máquina numa peça custa caro: o julgador desconta a atenção, a parte
-contrária aponta, o cliente que recebe um comunicado sente que foi respondido por um robô.
+- "O réu foi notificado — e nada fez." O travessão como cola universal de frases.
+- "Não há desconhecimento possível: a apelada conhecia a conta." O dois-pontos fazendo o mesmo
+  papel, depois que alguém mandou tirar os travessões.
+- "Não se trata apenas de inadimplemento, mas de má-fé contratual." O contraste com um
+  adversário que ninguém alegou.
+- "Cumpre esclarecer que", "insta salientar que", "vale dizer que", três vezes por página. O
+  anúncio no lugar da afirmação.
+- "..., evidenciando o descumprimento e configurando a mora." O gerúndio que finge
+  profundidade.
+- "A jurisprudência é pacífica." Sem tribunal, sem número, sem data.
+- "Diante de todo o exposto, resta evidente a procedência." A conclusão que não conclui nada.
+- "Célere, eficaz e segura." Três qualidades por reflexo, nunca duas nem quatro.
+
+Isolado, qualquer um deles aparece no texto de qualquer advogado. Juntos, formam a assinatura
+da máquina. E essa assinatura custa caro: o julgador desconta a atenção, a parte contrária
+aponta, o cliente desconfia. A peça pode estar juridicamente perfeita e ainda assim perder
+força antes do primeiro argumento, só pelo jeito de escrever.
 
 ## O que o Jusmanizer faz
 
@@ -157,6 +169,11 @@ Pronto. A partir da próxima conversa, basta pedir "jusmaniza este texto".
 e depois "Download ZIP". Abra o arquivo baixado, localize o `SKILL.md` e envie-o em
 Configurações, na área de habilidades (Skills), usando a opção de adicionar habilidade. Depois
 disso, o pedido "jusmaniza este texto" passa a funcionar em qualquer conversa.
+
+**Em outros assistentes (ChatGPT, Gemini, Antigravity, Codex e semelhantes).** Baixe o
+`SKILL.md` e adicione-o onde a ferramenta guarda skills ou instruções personalizadas: como
+skill, como arquivo de instruções do projeto ou colado nas instruções do assistente. O conteúdo
+é o mesmo em todos; muda só o lugar onde ele fica guardado.
 
 **Se preferir copiar o arquivo à mão.** Copie o `SKILL.md` deste repositório para a pasta de
 habilidades do Claude no seu computador, dentro de uma subpasta chamada `jusmanizer`. No
