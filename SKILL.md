@@ -518,4 +518,4 @@ python scripts/jusmanizer.py peca.md --excluir J12,J16   # ignorar padrões
 - [blader/humanizer](https://github.com/blader/humanizer) 3.0.0: a estrutura em cinco grupos
   ordenados por força, a regra de fidelidade e a regra da risca vêm de lá.
 - Wikipedia, [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing),
-  mantida pelo WikiProject AI Cleanup: a origem comum dos três.
+  mantida pelo WikiProject AI Cleanup: a fonte original dos padrões.
