@@ -7,6 +7,7 @@ import unittest
 import zipfile
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import urlsplit
 
 SPEC = importlib.util.spec_from_file_location("build_site", Path(__file__).with_name("build-site.py"))
 BUILDER = importlib.util.module_from_spec(SPEC)
@@ -62,7 +63,7 @@ class SiteTests(unittest.TestCase):
             if link.startswith("#") and link != "#":
                 self.assertIn(link[1:], parser.ids)
             elif not re.match(r"https?://", link) and not link.startswith("#"):
-                self.assertTrue((BUILDER.OUTPUT / link).is_file(), link)
+                self.assertTrue((BUILDER.OUTPUT / urlsplit(link).path).is_file(), link)
         self.assertEqual(parser.metas["og:image"], "https://brunoflma.github.io/jusmanizer/assets/social-preview.png")
         self.assertEqual(parser.metas["twitter:card"], "summary_large_image")
 

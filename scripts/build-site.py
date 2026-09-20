@@ -1,4 +1,5 @@
 """Prepare the static Pages site and downloads from the canonical skill files."""
+import hashlib
 import json
 import re
 import shutil
@@ -57,6 +58,11 @@ def build():
     if OUTPUT.resolve().parent != ROOT or OUTPUT.name != ".site-build":
         raise ValueError("Build output must stay inside the project")
     shutil.copytree(SITE, OUTPUT, dirs_exist_ok=True)
+    page = (OUTPUT / "index.html").read_text(encoding="utf-8")
+    for asset in ("assets/style.css", "assets/app.js"):
+        digest = hashlib.sha256((OUTPUT / asset).read_bytes()).hexdigest()[:12]
+        page = page.replace(f'"{asset}"', f'"{asset}?v={digest}"')
+    (OUTPUT / "index.html").write_text(page, encoding="utf-8")
     (OUTPUT / "assets/rules.json").write_text(json.dumps(metadata, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     downloads = OUTPUT / "downloads"
     downloads.mkdir(exist_ok=True)

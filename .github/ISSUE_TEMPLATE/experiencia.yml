@@ -1,0 +1,45 @@
+name: Experiência com o Jusmanizer
+description: Conte o que funcionou e o que pode melhorar na revisão de estilo.
+title: "[Experiência]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por experimentar o Jusmanizer. Seu relato ajuda a melhorar a skill.
+        Descreva a experiência sem incluir nomes de clientes, dados de processos ou conteúdo protegido por sigilo. Esta issue ficará pública.
+  - type: dropdown
+    id: assistente
+    attributes:
+      label: Em qual assistente você utilizou a skill?
+      options:
+        - Claude no navegador ou aplicativo
+        - Claude Code
+        - ChatGPT
+        - Codex
+        - Gemini
+        - Outro assistente
+  - type: dropdown
+    id: uso
+    attributes:
+      label: Em qual situação você utilizou?
+      options:
+        - Petição ou contestação
+        - Recurso
+        - Parecer
+        - Minuta contratual
+        - Mensagem ao cliente
+        - Adaptação à minha voz
+        - Outra situação
+  - type: textarea
+    id: experiencia
+    attributes:
+      label: Como foi a experiência?
+      description: Conte o que a revisão ajudou a resolver e o que ainda precisa de atenção.
+      placeholder: Descreva a situação em termos gerais, sem dados de clientes ou de processos.
+    validations:
+      required: true
+  - type: textarea
+    id: sugestao
+    attributes:
+      label: Qual melhoria você sugere?
+      description: Opcional. Sugestões de clareza, instruções, novos exemplos e uso da skill são bem-vindas.

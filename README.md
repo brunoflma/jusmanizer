@@ -10,6 +10,8 @@ São **32 padrões de revisão**, organizados em **seis grupos**, com uma diretr
 
 **[Conheça a página e veja as demonstrações ↗](https://brunoflma.github.io/jusmanizer/)** · [Baixar a skill em ZIP](https://brunoflma.github.io/jusmanizer/downloads/jusmanizer.zip) · [Ler o SKILL.md](SKILL.md) · [Instalação](#como-instalar)
 
+**A skill foi útil para você?** Clique em **Star**, no topo deste repositório, para encontrá-la novamente e apoiar o projeto. Se já testou, [conte sua experiência ou sugira uma melhoria](https://github.com/brunoflma/jusmanizer/issues/new?template=experiencia.yml). A estrela é opcional e o acesso continua livre.
+
 ## Onde ele entra no seu dia
 
 | Você está trabalhando em | O que pode pedir |

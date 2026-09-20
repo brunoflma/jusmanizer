@@ -3,6 +3,8 @@
 const examplesById = new Map();
 let currentExample;
 let toastTimer;
+let githubInviteDismissed = false;
+const GITHUB_REPOSITORY = "https://github.com/brunoflma/jusmanizer";
 const byId = (id) => document.getElementById(id);
 
 function notify(message) {
@@ -13,11 +15,44 @@ function notify(message) {
   toastTimer = window.setTimeout(() => toast.classList.remove("visible"), 2800);
 }
 
-async function copyText(text) {
+function inviteToGitHub(sourceButton) {
+  if (githubInviteDismissed || !sourceButton) return;
+  document.querySelector(".copy-invite")?.remove();
+  const invite = document.createElement("aside");
+  invite.className = "copy-invite";
+  invite.setAttribute("aria-label", "Conheça o projeto no GitHub");
+  const content = document.createElement("div");
+  const title = document.createElement("strong");
+  title.textContent = "Conheça o projeto por dentro.";
+  const description = document.createElement("p");
+  description.textContent = "No GitHub, você encontra as instruções e pode usar Star para salvar e apoiar a skill.";
+  const link = document.createElement("a");
+  link.href = GITHUB_REPOSITORY;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.setAttribute("data-github-cta", "");
+  link.textContent = "Ver e avaliar no GitHub ↗";
+  content.append(title, description, link);
+  const dismiss = document.createElement("button");
+  dismiss.className = "copy-invite-close";
+  dismiss.setAttribute("aria-label", "Fechar convite ao GitHub");
+  dismiss.textContent = "×";
+  dismiss.addEventListener("click", () => {
+    githubInviteDismissed = true;
+    invite.remove();
+    sourceButton.focus();
+  });
+  invite.append(content, dismiss);
+  const anchor = sourceButton.closest(".demo-bottom, .command") || sourceButton;
+  anchor.after(invite);
+}
+
+async function copyText(text, sourceButton, kind = "prompt") {
   if (!text) return;
   try {
     await navigator.clipboard.writeText(text);
-    notify("Pedido copiado. Leve para o seu assistente.");
+    notify(kind === "command" ? "Comando copiado." : "Pedido copiado. Leve para o seu assistente.");
+    inviteToGitHub(sourceButton);
   } catch {
     byId("copy-fallback").value = text;
     byId("copy-dialog").showModal();
@@ -188,7 +223,7 @@ document.addEventListener("keydown", (event) => {
   }
 });
 document.querySelectorAll("[data-copy-command]").forEach((button) => {
-  button.addEventListener("click", () => copyText(button.dataset.copyCommand));
+  button.addEventListener("click", () => copyText(button.dataset.copyCommand, button, "command"));
 });
 byId("highlight-toggle").addEventListener("change", () => {
   if (currentExample) renderExample(currentExample.id, false);
@@ -207,9 +242,9 @@ async function loadContent() {
     wireTabs("[data-example]", (tab) => renderExample(tab.dataset.example));
     renderExample("peticao", false);
     document.querySelectorAll("[data-copy-prompt]").forEach((button) => {
-      button.addEventListener("click", () => copyText(examplesById.get(button.dataset.copyPrompt)?.prompt));
+      button.addEventListener("click", () => copyText(examplesById.get(button.dataset.copyPrompt)?.prompt, button));
     });
-    byId("copy-example").addEventListener("click", () => copyText(currentExample?.prompt));
+    byId("copy-example").addEventListener("click", () => copyText(currentExample?.prompt, byId("copy-example")));
     promptButtons.forEach((button) => { button.disabled = false; });
   } catch {
     byId("demo-status").textContent = "Os exemplos interativos não carregaram. Consulte os exemplos e as instruções no repositório.";
