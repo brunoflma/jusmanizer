@@ -1,159 +1,89 @@
+<img src="docs/cover.svg" width="100%" alt="Jusmanizer. Seu argumento. Sua voz. Menos excesso.">
+
 # Jusmanizer
 
-**Você usa inteligência artificial para escrever. O juiz não precisa saber.**
+**A IA ajuda no rascunho. A escrita precisa continuar sendo sua.**
 
-Toda peça que sai de um assistente de IA carrega um sotaque: o travessão a cada duas linhas, o
-"cumpre esclarecer que" abrindo parágrafo, o "não se trata apenas de X, mas de Y", a
-"jurisprudência pacífica" que não cita julgado nenhum. O julgador reconhece esse sotaque em
-três frases. A parte contrária também. E o cliente que recebe um comunicado assim sente que foi
-atendido por uma máquina.
+O Jusmanizer é uma skill de revisão de estilo para textos jurídicos em português. Ela orienta o assistente de IA a retirar excessos, repetições e construções artificiais de petições, recursos, pareceres, minutas contratuais e comunicações, com atenção à formalidade e ao conteúdo original.
 
-O Jusmanizer tira o sotaque e deixa o argumento. Ele revisa petições, recursos, pareceres,
-contratos e comunicados e devolve o texto com a voz de um advogado experiente, sem alterar uma
-vírgula do que ele afirma. Tese, fatos, datas, pedidos e fontes ficam exatamente onde estavam.
-A formalidade forense fica. O que sai é só o que denuncia a origem.
+São **32 padrões de revisão**, organizados em **seis grupos**, com uma diretriz central: preservar fatos, nomes, valores, datas, pedidos, fontes e transcrições. O resultado continua sujeito à conferência do advogado.
 
-Por ser uma skill, um conjunto de instruções em texto puro, o Jusmanizer funciona em qualquer
-assistente que aceite skills ou instruções personalizadas: Claude, ChatGPT, Gemini,
-Antigravity, Codex e os demais. Você instala uma vez e passa a pedir "jusmaniza este texto" onde
-quer que esteja escrevendo.
+**[Conheça a página e veja as demonstrações ↗](https://brunoflma.github.io/jusmanizer/)** · [Baixar a skill em ZIP](https://brunoflma.github.io/jusmanizer/downloads/jusmanizer.zip) · [Ler o SKILL.md](SKILL.md) · [Instalação](#como-instalar)
 
-## Reconhece algum destes?
+## Onde ele entra no seu dia
 
-- "O réu foi notificado — e nada fez." O travessão como cola universal de frases.
-- "Não há desconhecimento possível: a apelada conhecia a conta." O dois-pontos fazendo o mesmo
-  papel, depois que alguém mandou tirar os travessões.
-- "Não se trata apenas de inadimplemento, mas de má-fé contratual." O contraste com um
-  adversário que ninguém alegou.
-- "Cumpre esclarecer que", "insta salientar que", "vale dizer que", três vezes por página. O
-  anúncio no lugar da afirmação.
-- "..., evidenciando o descumprimento e configurando a mora." O gerúndio que finge
-  profundidade.
-- "A jurisprudência é pacífica." Sem tribunal, sem número, sem data.
-- "Diante de todo o exposto, resta evidente a procedência." A conclusão que não conclui nada.
-- "Célere, eficaz e segura." Três qualidades por reflexo, nunca duas nem quatro.
+| Você está trabalhando em | O que pode pedir |
+| :--- | :--- |
+| Petição ou contestação | Retirar preâmbulos repetidos e tornar a exposição dos fatos mais direta. |
+| Recurso | Revisar transições e repetições, preservando o pedido e o tratamento ao órgão julgador. |
+| Parecer | Ajustar a clareza e o tom, sem mudar a conclusão ou ampliar o alcance da análise. |
+| Minuta contratual | Revisar a redação autoral, preservando partes, obrigações, valores e prazos. |
+| Mensagem ao cliente | Trocar o excesso de formalismo por uma comunicação profissional e acessível. |
+| Texto com a voz do escritório | Usar uma amostra de escrita para orientar o ritmo, o vocabulário e a pontuação. |
 
-Isolado, qualquer um deles aparece no texto de qualquer advogado. Juntos, formam a assinatura
-da máquina. E essa assinatura custa caro: o julgador desconta a atenção, a parte contrária
-aponta, o cliente desconfia. A peça pode estar juridicamente perfeita e ainda assim perder
-força antes do primeiro argumento, só pelo jeito de escrever.
+## Antes e depois, com os mesmos fatos
 
-## O que o Jusmanizer faz
+Os exemplos abaixo são fictícios e ilustrativos. Os resultados foram preparados para demonstrar a proposta de revisão; não são uma promessa de resposta idêntica em qualquer assistente.
 
-Ele lê o texto como um revisor sênior faria, marca cada um desses sinais e reescreve a frase
-para que ela diga a mesma coisa com a voz de um advogado experiente. Nada é acrescentado. Se
-uma frase precisa de um dado que não está no original, ele pergunta em vez de inventar.
+### Exposição de fatos em uma petição
 
-### Antes e depois
-
-**Travessão como cola de frases**
-
-> Antes: Não há documento novo — os fatos são os da inicial.
+> **Antes:** Cumpre esclarecer que a autora pagou R$ 1.250,00 em 10/08/2026. Insta salientar que o comprovante foi juntado no Doc. 03. Vale dizer que a ré não contestou o pagamento.
 >
-> Depois: Não há documento novo, e os fatos são os da inicial.
+> **Depois:** A autora pagou R$ 1.250,00 em 10/08/2026, conforme o comprovante juntado no Doc. 03. A ré não contestou o pagamento.
 
-**Dois-pontos fazendo o mesmo papel**
+A revisão retira os anúncios de importância. O valor, a data, o documento e a afirmação sobre a ré permanecem.
 
-> Antes: Não há desconhecimento possível: a apelada conhecia a conta desde o primeiro depósito.
+### Comunicação ao cliente
+
+> **Antes:** Prezada Ana, cumpre esclarecer que a audiência está marcada para 15/10/2026, às 14h. Insta salientar que ela ocorrerá por videoconferência. Vale dizer que o link será enviado no dia anterior.
 >
-> Depois: Não há desconhecimento possível, porque a apelada conhecia a conta desde o primeiro
-> depósito.
+> **Depois:** Prezada Ana, a audiência está marcada para 15/10/2026, às 14h, por videoconferência. O link será enviado no dia anterior.
 
-**Contraste com um adversário que ninguém alegou**
+O texto fica mais direto sem perder nenhuma orientação.
 
-> Antes: Não se trata apenas de inadimplemento, mas de má-fé contratual.
+### Quando falta uma fonte
+
+> **Entrada:** A jurisprudência é pacífica quanto ao tema.
 >
-> Depois: Houve má-fé contratual: o réu recebeu a notificação em 13/08/2026 e continuou a
-> descontar as parcelas.
+> **Conduta esperada:** Pedir ao advogado a referência conferida, em vez de criar um tribunal, um número de processo ou uma data para completar a frase.
 
-**Anúncio em série no lugar da afirmação**
-
-> Antes: Cumpre esclarecer que o prazo já havia decorrido. Insta salientar que a parte foi
-> intimada em 06/04/2026. Vale dizer que a mora é incontroversa.
->
-> Depois: O prazo já havia decorrido quando a parte foi intimada, em 06/04/2026. A mora é
-> incontroversa.
-
-**Gerúndio que finge profundidade**
-
-> Antes: O réu não pagou as parcelas, evidenciando o descumprimento e configurando a mora.
->
-> Depois: O réu não pagou as parcelas de abril a agosto de 2026. Está em mora desde
-> 13/08/2026 (art. 397 do Código Civil).
-
-**Autoridade sem nome**
-
-> Antes: A jurisprudência é pacífica quanto ao tema.
->
-> Depois: O STJ fixou a tese no Tema 1.234 (REsp 1.234.567, Rel. Min. X, DJe 12/03/2025).
->
-> Ou, se não houver julgado conferido na fonte oficial: a frase sai, porque afirmação sem fonte
-> não entra em peça.
-
-**Conclusão que não conclui**
-
-> Antes: Diante de todo o exposto, resta evidente a procedência do pedido.
->
-> Depois: A cláusula é nula (art. 51, IV, do CDC) e o valor descontado deve ser restituído em
-> dobro (art. 42, parágrafo único, do CDC).
-
-**Um parágrafo inteiro**
-
-> Antes: Cumpre esclarecer que a apelada — que sempre teve pleno conhecimento da conta — jamais
-> impugnou os lançamentos. Não se trata apenas de silêncio, mas de verdadeira aquiescência,
-> evidenciando a má-fé processual. Nesse sentido, a jurisprudência é pacífica: a parte que
-> silencia não pode, em última análise, alegar surpresa. Diante de todo o exposto, resta evidente
-> que o recurso não merece provimento.
->
-> Depois: A apelada conhecia a conta desde o primeiro depósito, em 14/03/2024, e nunca impugnou
-> os lançamentos (Docs. 05 a 09). Quem recebe vinte e oito extratos e não reclama de nenhum não
-> pode alegar surpresa. O STJ decidiu assim no REsp 1.234.567 (Rel. Min. X, DJe 12/03/2025). O
-> recurso não merece provimento.
-
-O segundo parágrafo é mais curto, diz mais, e nenhum fato novo foi inventado: as datas e os
-documentos vieram do próprio processo. Onde o original tinha "a jurisprudência é pacífica", a
-versão revisada só manteve a afirmação porque havia julgado conferido para sustentá-la.
-
-## O que ele nunca faz
-
-- **Não inventa.** Nome, número, data, dispositivo, julgado e fonte só entram se estiverem no
-  original ou vierem de você. Julgado só fica se foi conferido no portal do tribunal.
-- **Não toca em transcrição.** Ementa, inteiro teor, lei seca, cláusula de contrato e
-  depoimento ficam como estão, com os travessões e os dois-pontos da fonte.
-- **Não tira a solenidade.** "In verbis", "data venia", "Termos em que pede deferimento",
-  "roga a Vossa Excelência" fazem parte do registro e permanecem. O que sai é o vício de
-  máquina, não a formalidade.
-- **Não muda a forma de tratamento.** Peça de primeiro grau fala ao juiz; apelação fala à
-  Câmara. Ele respeita o grau e avisa quando o texto original errou ("Note Excelência" numa
-  apelação é erro processual, não de estilo).
-- **Não deixa a peça coloquial.** Humanizar texto jurídico não é torná-lo informal. É deixá-lo
-  com a voz de quem assina.
+[Explore os outros exemplos e copie pedidos prontos na página do projeto.](https://brunoflma.github.io/jusmanizer/#demonstracao)
 
 ## Como usar no dia a dia
 
-Depois de instalado (veja abaixo), o Jusmanizer funciona dentro da conversa com o assistente que você já usa.
-Não há tela nova nem botão: você pede em português.
+1. Instale ou forneça a skill ao assistente que você utiliza.
+2. Apresente o texto e diga qual revisão deseja.
+3. Confira a versão revisada antes de incorporá-la à minuta ou enviá-la ao destinatário.
 
-**Revisando um trecho.** Cole o texto na conversa e escreva, na mesma mensagem, o que quer:
-"jusmaniza esta contestação", "tira os travessões desta apelação" ou "revisa o estilo sem
-mudar o conteúdo". A palavra "jusmanizer" sozinha também basta. Ele devolve o rascunho
-revisado, uma lista curta do que mudou e a versão final, pronta para colar de volta na minuta.
+### Um pedido para começar
 
-**Revisando um arquivo.** Se a minuta está salva no computador, diga onde ela está: "jusmaniza
-o texto do arquivo contestacao.md". Ele reescreve só o texto e deixa o resto do arquivo como
-estava.
+```text
+Use o Jusmanizer para revisar o estilo deste texto jurídico. Preserve os
+fatos, nomes, valores, datas, pedidos, referências e transcrições. Mantenha
+a formalidade adequada ao destinatário e explique brevemente as alterações.
+Se faltar uma informação, pergunte em vez de completar por conta própria.
 
-**Com a sua voz.** Cole dois ou três parágrafos escritos por você antes do texto a revisar e
-peça para seguir o seu estilo. Ele passa a respeitar o seu comprimento de frase, a sua
-pontuação e as suas transições. Se você usa travessão de propósito, ele mantém a mesma medida.
+[COLE O TEXTO]
+```
+
+Para adotar a sua voz, forneça antes dois ou três parágrafos escritos por você. A skill orienta o assistente a respeitar essa amostra, inclusive quando ela utiliza construções que normalmente seriam revisadas.
+
+Em um ambiente com acesso a arquivos, você também pode pedir: `jusmaniza o texto do arquivo contestacao.md`. As instruções orientam preservar código, comandos, caminhos, metadados, tabelas e destinos de links.
 
 ## Como instalar
 
-Você mesmo instala, em menos de um minuto. Escolha o caminho que corresponde ao programa que
-você usa.
+### Claude no navegador ou aplicativo
 
-**No Claude Code** (o Claude que trabalha com arquivos no seu computador). Na caixa de
-mensagem, digite os dois comandos abaixo, um de cada vez, e pressione Enter depois de cada um:
+1. [Baixe o ZIP da skill](https://brunoflma.github.io/jusmanizer/downloads/jusmanizer.zip).
+2. Abra a área **Skills** nas configurações de recursos do Claude.
+3. Use a opção de enviar uma skill, selecione o ZIP e habilite-a.
+4. Em uma conversa, peça **“jusmaniza este texto”**.
+
+O ZIP contém a pasta `jusmanizer` com o arquivo de instruções e o verificador. A disponibilidade de skills depende da conta e das permissões do ambiente. Consulte o [guia oficial do Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude) se a opção não aparecer.
+
+### Claude Code
+
+Execute os comandos abaixo, um de cada vez, na caixa de mensagem do Claude Code:
 
 ```text
 /plugin marketplace add brunoflma/jusmanizer
@@ -163,101 +93,135 @@ mensagem, digite os dois comandos abaixo, um de cada vez, e pressione Enter depo
 /plugin install jusmanizer@jusmanizer
 ```
 
-Pronto. A partir da próxima conversa, basta pedir "jusmaniza este texto".
+Depois, inicie uma conversa com a skill disponível e peça a revisão.
 
-**No Claude do navegador ou no aplicativo Claude.** Baixe este repositório pelo botão "Code"
-e depois "Download ZIP". Abra o arquivo baixado, localize o `SKILL.md` e envie-o em
-Configurações, na área de habilidades (Skills), usando a opção de adicionar habilidade. Depois
-disso, o pedido "jusmaniza este texto" passa a funcionar em qualquer conversa.
+### Outros assistentes compatíveis
 
-**Em outros assistentes (ChatGPT, Gemini, Antigravity, Codex e semelhantes).** Baixe o
-`SKILL.md` e adicione-o onde a ferramenta guarda skills ou instruções personalizadas: como
-skill, como arquivo de instruções do projeto ou colado nas instruções do assistente. O conteúdo
-é o mesmo em todos; muda só o lugar onde ele fica guardado.
+O [SKILL.md](SKILL.md) é um arquivo de instruções em texto. Em ambientes que aceitam skills, instale-o pelo mecanismo correspondente. Em assistentes que aceitam arquivos ou instruções de projeto, forneça o conteúdo e peça explicitamente que ele seja seguido.
 
-**Se preferir copiar o arquivo à mão.** Copie o `SKILL.md` deste repositório para a pasta de
-habilidades do Claude no seu computador, dentro de uma subpasta chamada `jusmanizer`. No
-Windows, a pasta é `C:\Users\SEU-USUARIO\.claude\skills\jusmanizer\`.
+Isso não significa que ChatGPT, Gemini, Codex e outros produtos tenham a mesma interface de instalação ou os mesmos recursos. O resultado depende do ambiente e do modelo utilizado.
+
+<details>
+<summary><strong>Instalação manual e ferramentas de desenvolvimento</strong></summary>
+
+No Claude Code, também é possível colocar o `SKILL.md` em uma pasta `jusmanizer` dentro da pasta de skills. No Windows, o caminho pessoal é `C:\Users\SEU-USUARIO\.claude\skills\jusmanizer\`.
+
+Para descobrir a skill com o instalador `skills`:
+
+```text
+npx skills add brunoflma/jusmanizer
+```
+
+Escolha o agente e o destino de instalação oferecidos pelo instalador.
+
+</details>
 
 ## As 32 regras, em linguagem de advogado
 
-**Encenar em vez de afirmar** (uma ocorrência já basta para reescrever)
+<details>
+<summary><strong>A. Encenar em vez de afirmar: J01 a J07</strong></summary>
 
-1. Travessão em qualquer forma. Zero no corpo da peça, inclusive o par que abre e fecha um
-   aposto. Sobram só a transcrição literal e o intervalo numérico (`2019–2021`, `arts. 1º–5º`).
-   O hífen de palavra (`decisão-surpresa`, `dar-se-á`) e de número de processo nunca é tocado.
-2. Dois-pontos emendando duas orações. Dois-pontos só antes de enumeração, de citação e de
-   fórmula forense ("requer:", "in verbis:", "a saber:").
-3. "Não se trata apenas de X, mas de Y." Afirme Y. Mantenha o contraste só quando X foi
-   alegado pela outra parte.
-4. Frase solta de uma linha que repete o parágrafo anterior. "É o que basta."
-5. Frase de efeito: "em última análise", "a questão de fundo é", "o que realmente importa".
-6. Anúncio em vez de afirmação: "cumpre esclarecer que", "insta salientar", "vale dizer".
-   Uma isolada é tolerada; três no texto é sotaque.
-7. Responder a objeção que ninguém levantou: "não se está a dizer que".
+| Padrão | O que observar |
+| :--- | :--- |
+| J01 | Risca usada como conector universal, preservando hífens, transcrições e intervalos numéricos. |
+| J02 | Dois-pontos emendando orações, em vez de introduzir lista, citação ou fórmula forense. |
+| J03 | Contraste “não X, mas Y” sem uma oposição real a enfrentar. |
+| J04 | Fecho solto ou fragmento dramático que apenas repete o ponto anterior. |
+| J05 | Frase de efeito no lugar de uma informação concreta. |
+| J06 | Preâmbulos em série, como “cumpre esclarecer”, “insta salientar” e “vale dizer”. |
+| J07 | Resposta a uma objeção que ninguém apresentou. |
 
-**Ritmo por regra** (precisam de companhia para justificar a edição)
+</details>
 
-8. Três qualidades por reflexo: "célere, eficaz e segura".
-9. Três períodos seguidos começando pelo mesmo sujeito.
-10. Qualificadores empilhados: "pode-se potencialmente considerar que possivelmente".
-11. Passiva sem sujeito onde cabe voz ativa: "restou confessado" vira "o réu confessou".
+<details>
+<summary><strong>B. Ritmo por regra: J08 a J11</strong></summary>
 
-**Inflação e autoridade emprestada**
+| Padrão | O que observar |
+| :--- | :--- |
+| J08 | Três qualidades ou exemplos usados por reflexo. |
+| J09 | Períodos seguidos com a mesma abertura. |
+| J10 | Qualificadores empilhados que enfraquecem a afirmação. |
+| J11 | Voz passiva sem sujeito, quando cabe voz ativa sem alterar a atribuição. |
 
-12. Vocabulário de máquina no jargão forense: "nesse sentido", "cabe ressaltar", "no que
-    tange", "sob essa ótica", "resta evidente", "inequívoco", "robusto", "fulcral", "destarte".
-13. Significado inflado: "verdadeiro divisor de águas", "papel fundamental", "marco crucial".
-14. Conexão vaga: "vinculado à administração" sem dizer se era sócio, administrador ou
-    procurador.
-15. Gerúndio de fechamento: ", evidenciando", ", configurando", ", garantindo".
-16. Atribuição sem fonte: "a doutrina entende", "a jurisprudência é pacífica", "é cediço".
-17. Rodeio no lugar do verbo ser: "se apresenta como abusiva", "consubstancia".
-18. Conclusão genérica: "resta evidente" no lugar da consequência jurídica.
+</details>
 
-**Formatação por regra**
+<details>
+<summary><strong>C. Inflação e autoridade emprestada: J12 a J18</strong></summary>
 
-19. Negrito decorativo. Negrito só em dado objetivo (data, valor, folha, documento).
-20. Preposição em maiúscula no meio do título: "Da Perda Da Qualidade De Segurado".
-21. Aspas curvas no lugar das retas.
-22. Emoji, seta e linha decorativa.
+| Padrão | O que observar |
+| :--- | :--- |
+| J12 | Vocabulário de IA repetido no jargão forense. |
+| J13 | Importância inflada por expressões genéricas. |
+| J14 | Relações vagas, sem dizer qual é o vínculo entre pessoas ou fatos. |
+| J15 | Gerúndio de fechamento que aparenta explicar, mas não acrescenta informação. |
+| J16 | Atribuição vaga à doutrina ou à jurisprudência, sem fonte identificada. |
+| J17 | Rodeios desnecessários no lugar do verbo ser. |
+| J18 | Conclusão genérica, sem explicitar a consequência já sustentada pelo texto. |
 
-**Resíduo de conversa**
+</details>
 
-23. "Segue abaixo", "espero ter ajudado", "ótima pergunta".
-24. "Com base nas informações disponíveis", "provavelmente" apresentado como fato.
-25. Título repetido na primeira frase do capítulo.
-26. "Diferentemente da minuta anterior" fora de um comparativo de versões.
+<details>
+<summary><strong>D. Formatação por regra: J19 a J22</strong></summary>
 
-**Exclusivo do texto jurídico**
+| Padrão | O que observar |
+| :--- | :--- |
+| J19 | Negrito decorativo, sem função de destacar um dado objetivo. |
+| J20 | Iniciais maiúsculas indevidas no meio de títulos. |
+| J21 | Aspas curvas onde a convenção do texto pede aspas retas. |
+| J22 | Emojis, setas e linhas decorativas no corpo da peça. |
 
-27. Transcrição é intocável.
-28. Tratamento segue o grau de jurisdição.
-29. Formalidade preservada: remove-se o vício, não a solenidade.
-30. Fórmula forense consagrada não é defeito. A repetição dela é.
-31. Fidelidade: reescrever nunca acrescenta fato, número, data, julgado ou fonte.
-32. Referente sempre nomeado: "isso", "o referido" e "a mesma" longe do dono viram o nome da
-    coisa ("o contrato de 2019", "a notificação de 13/08/2026").
+</details>
 
-## Verificador automático
+<details>
+<summary><strong>E. Resíduos de conversa: J23 a J26</strong></summary>
 
-Para quem quer conferir um arquivo sem reescrevê-lo, o repositório traz o verificador
-`scripts/jusmanizer.py`. Ele lê o texto, aponta cada sinal que encontrou com a frase em que
-está e diz qual é o remédio. Não altera nada. Quem tem Python instalado roda assim:
+| Padrão | O que observar |
+| :--- | :--- |
+| J23 | Expressões do chat que ficaram no documento final. |
+| J24 | Ressalvas sobre o modelo ou palpites apresentados como fatos. |
+| J25 | Primeira frase que apenas repete o título da seção. |
+| J26 | Comentários sobre versões anteriores fora de uma comparação solicitada. |
+
+</details>
+
+<details>
+<summary><strong>F. Cuidados próprios do texto jurídico: J27 a J32</strong></summary>
+
+| Padrão | O que preservar |
+| :--- | :--- |
+| J27 | Transcrições literais de leis, julgados, depoimentos e cláusulas. |
+| J28 | A forma de tratamento adequada ao grau de jurisdição. |
+| J29 | A formalidade própria de cada tipo de documento. |
+| J30 | Fórmulas forenses consagradas, sem tratá-las isoladamente como defeitos. |
+| J31 | Fatos, nomes, números, datas, pedidos, julgados e fontes do original. |
+| J32 | A identificação clara do referente de expressões como “isso” ou “o referido”. |
+
+</details>
+
+O catálogo completo, com critérios, exceções e exemplos, está no [SKILL.md](SKILL.md). A amostra de voz fornecida pelo advogado tem prioridade sobre preferências gerais de estilo.
+
+## Verificador de arquivos
+
+O repositório também inclui um verificador em Python. Ele aponta os padrões que consegue identificar por regras e mostra onde aparecem. A execução normal não reescreve o arquivo.
 
 ```text
 python scripts/jusmanizer.py peca.md
 ```
 
-## Licença e responsabilidade
+Para obter o resultado em formato estruturado:
 
-O Jusmanizer é distribuído sob a licença MIT: uso, cópia e adaptação livres, sem garantia de
-qualquer natureza.
+```text
+python scripts/jusmanizer.py peca.md --json
+```
 
-**É uma ferramenta de apoio à redação, não um substituto do advogado.** Ela aponta e reescreve
-padrões de estilo. Não confere o direito, não valida a tese, não verifica se o julgado citado
-existe, não avalia a estratégia processual. Toda peça, parecer ou comunicado revisado com o
-Jusmanizer deve ser lido e aprovado pelo advogado que o assina, a quem cabe integralmente a
-responsabilidade pelo conteúdo, nos termos do Estatuto da Advocacia e do Código de Ética e
-Disciplina da OAB. Texto gerado ou revisado por inteligência artificial não dispensa a
-conferência humana de cada fato, cada fonte e cada pedido.
+O verificador não cobre todo o julgamento contextual da skill e não determina se um texto foi escrito por uma pessoa ou por IA.
+
+## Uso responsável e licença
+
+O Jusmanizer apoia a **revisão de estilo**. Não valida uma tese, não confirma a existência de julgados e não decide a estratégia de um caso. Confira o conteúdo, as fontes e os pedidos antes de usar a versão revisada.
+
+Ao trabalhar com documentos reais, observe o sigilo e as regras de tratamento de dados do assistente escolhido. A demonstração no site utiliza apenas exemplos prontos e fictícios.
+
+Distribuído sob a [licença MIT](LICENSE), sem garantia. A revisão e a responsabilidade profissional pelo documento permanecem com quem o utiliza e assina.
+
+[Dúvidas e contribuições](https://github.com/brunoflma/jusmanizer/issues) · [Bruno Ferreira](https://github.com/brunoflma) · [LinkedIn](https://www.linkedin.com/in/brunoflma/)
