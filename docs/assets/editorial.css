@@ -66,7 +66,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, summary:focus-visibl
 nav { gap: 2px; padding: 4px; background: #090f16; border: 1px solid #1e2b38; border-radius: 6px; font-size: 16px; font-weight: 500; }
 nav a { padding: 6px 10px; border: 1px solid transparent; border-radius: 4px; white-space: nowrap; }
 nav a:hover, nav a:focus-visible { background: var(--surface); color: var(--green); }
-nav a:first-child { color: var(--green); background: var(--surface); border-color: var(--line); }
+nav a[aria-current="location"] { color: var(--green); background: var(--surface); border-color: var(--line); }
 .header-cta { flex: none; display: inline-flex; align-items: center; justify-content: center; gap: 5px; padding: 9px 13px; background: var(--green); color: #213600; border-radius: 4px; font-size: 16px; font-weight: 700; line-height: 1.3; box-shadow: 0 0 24px #a3e63535; white-space: nowrap; }
 .header-cta:hover { background: #dcffa9; }
 .header-cta-short { display: none; }

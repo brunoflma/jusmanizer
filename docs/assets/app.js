@@ -215,7 +215,36 @@ menuButton.addEventListener("click", () => {
   menuButton.setAttribute("aria-label", open ? "Fechar navegação" : "Abrir navegação");
   byId("nav").classList.toggle("open", open);
 });
-byId("nav").querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+const navigationLinks = [...byId("nav").querySelectorAll('a[href^="#"]')];
+const navigationSections = navigationLinks.map((link) => ({ link, section: byId(link.hash.slice(1)) }));
+const header = document.querySelector(".header");
+function updateActiveNavigation() {
+  const marker = header.offsetHeight + Math.min(window.innerHeight * 0.2, 200);
+  let activeLink = null;
+  for (const { link, section } of navigationSections) {
+    if (section.getBoundingClientRect().top > marker) break;
+    activeLink = link;
+  }
+  navigationLinks.forEach((link) => {
+    if (link === activeLink) link.setAttribute("aria-current", "location");
+    else link.removeAttribute("aria-current");
+  });
+}
+let navigationUpdateQueued = false;
+function scheduleNavigationUpdate() {
+  if (navigationUpdateQueued) return;
+  navigationUpdateQueued = true;
+  window.requestAnimationFrame(() => {
+    navigationUpdateQueued = false;
+    updateActiveNavigation();
+  });
+}
+navigationLinks.forEach((link) => link.addEventListener("click", closeMenu));
+window.addEventListener("scroll", scheduleNavigationUpdate, { passive: true });
+window.addEventListener("resize", scheduleNavigationUpdate);
+window.addEventListener("hashchange", scheduleNavigationUpdate);
+window.addEventListener("pageshow", scheduleNavigationUpdate);
+scheduleNavigationUpdate();
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && menuButton.getAttribute("aria-expanded") === "true") {
     closeMenu();
