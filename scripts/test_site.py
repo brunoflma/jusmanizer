@@ -64,7 +64,7 @@ class SiteTests(unittest.TestCase):
                 self.assertIn(link[1:], parser.ids)
             elif not re.match(r"https?://", link) and not link.startswith("#"):
                 self.assertTrue((BUILDER.OUTPUT / urlsplit(link).path).is_file(), link)
-        self.assertEqual(parser.metas["og:image"], "https://brunoflma.github.io/jusmanizer/assets/social-preview.png")
+        self.assertEqual(parser.metas["og:image"], "https://brunoflma.github.io/jusmanizer/assets/social-preview.png?v=editorial")
         self.assertEqual(parser.metas["twitter:card"], "summary_large_image")
 
 
