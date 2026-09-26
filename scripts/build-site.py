@@ -59,7 +59,7 @@ def build():
         raise ValueError("Build output must stay inside the project")
     shutil.copytree(SITE, OUTPUT, dirs_exist_ok=True)
     page = (OUTPUT / "index.html").read_text(encoding="utf-8")
-    for asset in ("assets/style.css", "assets/app.js"):
+    for asset in ("assets/style.css", "assets/editorial.css", "assets/app.js"):
         digest = hashlib.sha256((OUTPUT / asset).read_bytes()).hexdigest()[:12]
         page = page.replace(f'"{asset}"', f'"{asset}?v={digest}"')
     (OUTPUT / "index.html").write_text(page, encoding="utf-8")
