@@ -1,4 +1,4 @@
-<img src="docs/cover.svg" width="100%" alt="Jusmanizer. Seu argumento. Sua voz. Menos excesso.">
+<img src="docs/cover.svg" width="100%" alt="Jusmanizer. O argumento é seu. A escrita também. Skill aberta de revisão de estilo jurídico.">
 
 # Jusmanizer
 

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="48" viewBox="0 0 260 48" role="img" aria-labelledby="title">
+  <title id="title">Jusmanizer</title>
+  <text x="0" y="35" fill="#ccff80" font-family="'JetBrains Mono',Consolas,monospace" font-size="32" font-weight="600" letter-spacing="-1">j.</text>
+  <text x="52" y="35" fill="#dde3ed" font-family="'JetBrains Mono',Consolas,monospace" font-size="32" font-weight="600" letter-spacing="-1">jusmanizer<tspan fill="#ccff80">_</tspan></text>
+  <rect x="247" y="9" width="9" height="29" fill="#ccff80"/>
+</svg>

@@ -59,6 +59,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, summary:focus-visibl
 .header { height: 72px; background: #0b1118ed; border-bottom-color: #1e2b38; }
 .header-inner { gap: 24px; }
 .brand { font: 600 20px/1 var(--mono); letter-spacing: -.04em; white-space: nowrap; }
+.brand-logo { display: block; width: 184px; height: auto; }
 .brand-icon { display: inline; width: auto; height: auto; padding: 0; margin: 0 6px 0 0; background: none; border-radius: 0; color: var(--green); font: inherit; }
 .brand-dot { margin-left: 0; }
 .brand-cursor { display: inline-block; width: 7px; height: 19px; margin-left: 3px; background: var(--green); }
@@ -323,6 +324,7 @@ dialog p, dialog textarea { font-size: 18px; }
   .container { padding-inline: 20px; }
   .header { height: 62px; }
   .brand { font-size: 18px; }
+  .brand-logo { width: 166px; }
   .brand-cursor { width: 6px; height: 15px; }
   .header-cta { padding: 8px 9px; font-size: 16px; }
   .header-cta-label { display: none; }
