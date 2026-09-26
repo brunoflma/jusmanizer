@@ -50,6 +50,9 @@ button:focus-visible, a:focus-visible, input:focus-visible, summary:focus-visibl
 .section { padding-block: 104px; }
 .section-heading { max-width: 760px; margin-bottom: 40px; }
 .section-heading > p:last-child { font-size: 15px; line-height: 1.7; margin-top: 18px; }
+.sentence { display: block; }
+#proposta .section-heading { max-width: none; }
+#proposta .section-heading > p:last-child { max-width: none; white-space: nowrap; }
 .eyebrow { font: 600 11px/1.5 var(--mono); letter-spacing: .09em; margin-bottom: 18px; }
 .small-label { font: 600 11px/1.5 var(--mono); letter-spacing: .07em; }
 
@@ -80,7 +83,11 @@ nav a:first-child { color: var(--green); background: var(--surface); border-colo
 .button.primary:hover { background: #dcffa9; box-shadow: 0 0 28px #a3e63555; }
 .button.secondary { background: var(--surface); border-color: var(--line); }
 .button.secondary:hover { border-color: var(--green); color: var(--green); }
-.hero-community { color: var(--muted); font-size: 13px; line-height: 1.7; margin-top: 33px; }
+.hero-security { display: inline-flex; align-items: center; gap: 12px; max-width: 100%; margin-top: 22px; padding: 9px 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; color: var(--muted); font: 500 11px/1.4 var(--mono); }
+.hero-security:hover { border-color: var(--green); color: var(--text); }
+.hero-security img { display: block; flex: none; width: 166px; height: 20px; }
+.hero-security span span { color: var(--green); }
+.hero-community { color: var(--muted); font-size: 13px; line-height: 1.7; margin-top: 18px; }
 .hero-foot { max-width: 500px; color: #c2cab0; font-size: 12px; margin-top: 10px; }
 .status-dot { width: 6px; height: 6px; box-shadow: none; }
 .hero .eyebrow { display: inline-flex; align-items: center; padding: 6px 10px; background: var(--surface); border: 1px solid #1e2b38; border-radius: 3px; margin-bottom: 24px; }
@@ -189,7 +196,6 @@ nav a:first-child { color: var(--green); background: var(--surface); border-colo
 .rule-group summary small { color: var(--muted); font: 10px/1.5 var(--mono); }
 .rule-group li { border-top-color: #2c3e50; }
 .rule-group li code { color: var(--green); }
-.rules-foot { background: var(--surface2); border-color: var(--line); border-radius: 4px; color: var(--muted); }
 
 .install-shell { background: var(--surface); border-color: #1e2b38; border-radius: 8px; }
 #instalar .section-heading { max-width: none; }
@@ -204,7 +210,20 @@ nav a:first-child { color: var(--green); background: var(--surface); border-colo
 .download-glyph { color: var(--green); }
 .command { background: #090f16; border-color: var(--line); border-radius: 4px; }
 .command button { color: var(--green); }
-.technical-detail { background: var(--surface); border-color: var(--line); border-radius: 6px; }
+.technical-detail { width: min(100%, 820px); margin-top: 24px; padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.technical-detail summary { display: flex; align-items: center; gap: 16px; padding: 18px 20px; list-style: none; color: var(--text); cursor: pointer; }
+.technical-detail summary::-webkit-details-marker { display: none; }
+.technical-icon { display: grid; place-items: center; flex: none; width: 42px; height: 42px; background: #1a2634; border: 1px solid var(--line); border-radius: 5px; color: var(--green); font: 600 12px/1 var(--mono); }
+.technical-label { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.technical-label strong { font-size: 14px; font-weight: 600; }
+.technical-label small { color: var(--muted); font-size: 12px; line-height: 1.4; }
+.technical-toggle { display: grid; place-items: center; flex: none; width: 24px; height: 24px; margin-left: auto; color: var(--green); font: 22px/1 var(--mono); }
+.technical-detail[open] summary { margin-bottom: 0; border-bottom: 1px solid var(--line); }
+.technical-detail[open] .technical-toggle { transform: rotate(45deg); }
+.technical-content { display: grid; gap: 16px; padding: 20px; }
+.technical-content p { margin: 0; max-width: 680px; line-height: 1.7; }
+.technical-content .command { margin: 0; max-width: 610px; }
+.technical-content > a { width: fit-content; color: var(--green); font: 500 11px/1.5 var(--mono); }
 
 .responsibility { max-width: none; padding: 70px max(48px, calc((100vw - 1184px) / 2)); background: var(--surface); border-radius: 0; }
 .responsibility-grid h2 { font: 400 clamp(35px, 3.5vw, 48px)/1.1 Newsreader, Georgia, serif; }
@@ -220,8 +239,8 @@ nav a:first-child { color: var(--green); background: var(--surface); border-colo
 .faq-list p { color: var(--muted); font-size: 13px; }
 .final-cta { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 34px 38px; }
 .final-cta h2 { font: 400 clamp(30px, 2.8vw, 40px)/1.1 Newsreader, Georgia, serif; white-space: nowrap; }
-.final-cta p:last-child { color: var(--muted); font-size: 13px; }
-.footer { max-width: none; padding: 34px 36px; border-top: 1px solid #1e2b38; gap: 24px; }
+.final-cta p:last-child { max-width: none; color: var(--muted); font-size: 13px; }
+.footer { max-width: 1280px; padding: 34px 48px; border-top: 1px solid #1e2b38; gap: 24px; }
 .footer-identity { min-width: 0; }
 .footer-brand { color: #aebfe0; font: 500 15px/1.5 var(--mono); letter-spacing: -.03em; }
 .footer-brand strong { color: var(--green); }
@@ -249,6 +268,10 @@ nav a:first-child { color: var(--green); background: var(--surface); border-colo
   .responsibility-grid { grid-template-columns: 1fr; gap: 28px; }
   .final-cta { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }
   .footer { align-items: flex-start; flex-direction: column; }
+}
+
+@media (max-width: 820px) {
+  #proposta .section-heading > p:last-child { white-space: normal; }
 }
 
 @media (max-width: 800px) {
@@ -283,6 +306,7 @@ nav a:first-child { color: var(--green); background: var(--surface); border-colo
   .hero h1 em { white-space: normal; }
   .hero-lead { font-size: 15px; }
   .hero-actions .button { width: 100%; }
+  .hero-security { align-items: flex-start; flex-direction: column; gap: 7px; }
   .paper { padding: 20px 18px 17px; }
   .paper p { font-size: 19px; }
   .paper-bottom { flex-wrap: wrap; }
