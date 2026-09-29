@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="330" viewBox="0 0 1200 330" role="img" aria-labelledby="title desc">
+  <title id="title">Jusmanizer</title>
+  <desc id="desc">O argumento é seu. A escrita também. Skill aberta de revisão de estilo jurídico.</desc>
+  <rect width="1200" height="330" rx="8" fill="#0b1118"/>
+  <rect x="1" y="1" width="1198" height="328" rx="7" fill="none" stroke="#2c3e50"/>
+  <path d="M48 94H1152" stroke="#2c3e50"/>
+  <text x="48" y="65" fill="#ccff80" font-family="'JetBrains Mono',Consolas,monospace" font-size="31" font-weight="600" letter-spacing="-1.2">j.</text>
+  <text x="97" y="65" fill="#dde3ed" font-family="'JetBrains Mono',Consolas,monospace" font-size="31" font-weight="600" letter-spacing="-1.2">jusmanizer<tspan fill="#ccff80">_</tspan></text>
+  <rect x="280" y="40" width="9" height="29" fill="#ccff80"/>
+  <text x="49" y="123" fill="#ccff80" font-family="'JetBrains Mono',Consolas,monospace" font-size="15" font-weight="600" letter-spacing="1.2">SKILL ABERTA · PORTUGUÊS JURÍDICO</text>
+  <text x="47" y="206" fill="#dde3ed" font-family="Newsreader,Georgia,serif" font-size="72" letter-spacing="-2">O argumento é seu.</text>
+  <text x="47" y="275" fill="#ccff80" font-family="Newsreader,Georgia,serif" font-size="72" font-style="italic" letter-spacing="-2">A escrita também.</text>
+  <g transform="translate(775 112)">
+    <rect width="378" height="185" rx="7" fill="#131d27" stroke="#2c3e50"/>
+    <text x="20" y="31" fill="#ccff80" font-family="'JetBrains Mono',Consolas,monospace" font-size="14" font-weight="600">MINUTA / REVISÃO DE ESTILO</text>
+    <path d="M20 43H358" stroke="#2c3e50"/>
+    <text x="20" y="72" fill="#fca5a5" font-family="'JetBrains Mono',Consolas,monospace" font-size="13">O EXCESSO</text>
+    <text x="20" y="103" fill="#c6c3c8" font-family="Newsreader,Georgia,serif" font-size="26">Cumpre esclarecer que</text>
+    <path d="M20 95H252" stroke="#fca5a5" stroke-width="2"/>
+    <text x="20" y="130" fill="#ccff80" font-family="'JetBrains Mono',Consolas,monospace" font-size="13">↓  AFIRMAR, EM VEZ DE ANUNCIAR</text>
+    <text x="20" y="165" fill="#dde3ed" font-family="Newsreader,Georgia,serif" font-size="28">A autora pagou o valor.</text>
+  </g>
+</svg>

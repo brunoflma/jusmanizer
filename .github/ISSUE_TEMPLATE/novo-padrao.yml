@@ -1,0 +1,30 @@
+name: Novo vício de escrita
+description: Um sinal de texto de IA em peça ou parecer que nenhum padrão atual pega.
+title: "[Padrão]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Esta issue ficará pública. Use texto fictício ou já sem dados de clientes e de processos.
+  - type: textarea
+    id: antes
+    attributes:
+      label: Exemplo
+      description: Um trecho real (anonimizado) que mostra o vício.
+    validations:
+      required: true
+  - type: textarea
+    id: depois
+    attributes:
+      label: Como um advogado escreveria
+      description: A mesma frase, com os mesmos fatos, sem o vício.
+    validations:
+      required: true
+  - type: textarea
+    id: motivo
+    attributes:
+      label: Por que nenhum padrão atual cobre
+      description: Cite o padrão mais próximo e diga por que ele não pega este caso. A maioria dos vícios novos cabe num padrão existente.
+    validations:
+      required: true

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "jusmanizer",
+  "description": "Remove traços de escrita gerada por IA de texto jurídico em português brasileiro (peça, parecer, relatório, comunicado a cliente) sem mudar o que ele afirma e sem tirar a formalidade forense.",
+  "version": "1.1.1",
+  "author": {
+    "name": "Bruno Lima",
+    "url": "https://github.com/brunoflma"
+  },
+  "homepage": "https://github.com/brunoflma/jusmanizer",
+  "repository": "https://github.com/brunoflma/jusmanizer",
+  "license": "MIT",
+  "keywords": ["juridico", "escrita", "humanizar", "peticao", "pt-br", "estilo"],
+  "skills": ["./"]
+}

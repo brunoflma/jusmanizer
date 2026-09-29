@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">Jusmanizer. O argumento é seu. A escrita também.</title>
+  <desc id="desc">Skill aberta para revisão de estilo jurídico, com 33 padrões em sete grupos.</desc>
+  <rect width="1280" height="640" fill="#0b1118"/>
+  <rect x="24" y="24" width="1232" height="592" rx="9" fill="none" stroke="#2c3e50" stroke-width="2"/>
+  <text x="64" y="109" fill="#ccff80" font-family="'JetBrains Mono',Consolas,monospace" font-size="40" font-weight="600" letter-spacing="-1.2">j.</text>
+  <text x="126" y="109" fill="#dde3ed" font-family="'JetBrains Mono',Consolas,monospace" font-size="40" font-weight="600" letter-spacing="-1.2">jusmanizer<tspan fill="#ccff80">_</tspan></text>
+  <rect x="368" y="76" width="11" height="37" fill="#ccff80"/>
+  <path d="M64 142H1216" stroke="#2c3e50"/>
+  <text x="65" y="186" fill="#ccff80" font-family="'JetBrains Mono',Consolas,monospace" font-size="18" font-weight="600" letter-spacing="1.2">SKILL ABERTA · PORTUGUÊS JURÍDICO</text>
+  <text x="62" y="299" fill="#dde3ed" font-family="Newsreader,Georgia,serif" font-size="78" letter-spacing="-2">O argumento é seu.</text>
+  <text x="62" y="389" fill="#ccff80" font-family="Newsreader,Georgia,serif" font-size="78" font-style="italic" letter-spacing="-2">A escrita também.</text>
+  <text x="66" y="464" fill="#9aa9b9" font-family="Manrope,Arial,sans-serif" font-size="26">A IA ajuda no rascunho.</text>
+  <text x="66" y="504" fill="#9aa9b9" font-family="Manrope,Arial,sans-serif" font-size="26">A escrita precisa continuar sendo sua.</text>
+  <rect x="64" y="543" width="182" height="47" rx="4" fill="#ccff80"/>
+  <text x="84" y="574" fill="#213600" font-family="'JetBrains Mono',Consolas,monospace" font-size="17" font-weight="600">33 PADRÕES</text>
+  <rect x="258" y="543" width="164" height="47" rx="4" fill="#131d27" stroke="#2c3e50"/>
+  <text x="279" y="574" fill="#dde3ed" font-family="'JetBrains Mono',Consolas,monospace" font-size="17">6 GRUPOS</text>
+  <g transform="translate(774 177)">
+    <rect width="440" height="391" rx="8" fill="#131d27" stroke="#2c3e50"/>
+    <text x="28" y="43" fill="#ccff80" font-family="'JetBrains Mono',Consolas,monospace" font-size="15" font-weight="600">MINUTA / REVISÃO DE ESTILO</text>
+    <path d="M28 62H412" stroke="#2c3e50"/>
+    <text x="28" y="101" fill="#fca5a5" font-family="'JetBrains Mono',Consolas,monospace" font-size="17">O EXCESSO</text>
+    <text x="28" y="143" fill="#c6c3c8" font-family="Newsreader,Georgia,serif" font-size="31">Cumpre esclarecer que</text>
+    <path d="M28 132H316" stroke="#fca5a5" stroke-width="2"/>
+    <text x="28" y="183" fill="#c6c3c8" font-family="Newsreader,Georgia,serif" font-size="29">a autora pagou o valor indicado.</text>
+    <text x="28" y="229" fill="#ccff80" font-family="'JetBrains Mono',Consolas,monospace" font-size="15">↓  AFIRMAR, EM VEZ DE ANUNCIAR</text>
+    <text x="28" y="279" fill="#86efac" font-family="'JetBrains Mono',Consolas,monospace" font-size="17">O ARGUMENTO</text>
+    <text x="28" y="324" fill="#dde3ed" font-family="Newsreader,Georgia,serif" font-size="29">A autora pagou o valor indicado.</text>
+    <path d="M28 347H412" stroke="#2c3e50"/>
+    <text x="28" y="373" fill="#9aa9b9" font-family="'JetBrains Mono',Consolas,monospace" font-size="14">J06 · PREÂMBULO ENCENADO</text>
+  </g>
+</svg>

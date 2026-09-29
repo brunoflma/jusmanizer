@@ -1,0 +1,4 @@
+interface:
+  display_name: "Jusmanizer"
+  short_description: "Remove traços de IA de texto jurídico pt-BR sem mudar o que ele afirma"
+  default_prompt: "Use a skill jusmanizer para revisar o texto jurídico abaixo, removendo traços de escrita de IA sem alterar afirmações, fontes ou formalidade."

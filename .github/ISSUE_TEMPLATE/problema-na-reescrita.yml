@@ -1,0 +1,48 @@
+name: Problema na reescrita
+description: A revisão manteve um vício, mudou o sentido, acrescentou fato ou mexeu no que estava certo.
+title: "[Reescrita]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Esta issue ficará pública. Tire do texto nomes de clientes, números de processo e todo conteúdo sob sigilo antes de colar.
+  - type: dropdown
+    id: problema
+    attributes:
+      label: O que deu errado
+      options:
+        - Um vício sobreviveu à revisão
+        - A revisão acrescentou ou perdeu um fato, data, valor, pedido ou fonte
+        - A revisão mexeu em texto que estava certo (transcrição, fórmula forense, tratamento)
+        - Outro problema
+    validations:
+      required: true
+  - type: textarea
+    id: entrada
+    attributes:
+      label: Texto enviado
+      description: O trecho que você deu ao Jusmanizer, já sem dados sigilosos.
+    validations:
+      required: true
+  - type: textarea
+    id: chamada
+    attributes:
+      label: Como você pediu
+      description: O assistente, o modelo e o pedido exato.
+      placeholder: "Claude Code, Opus 5.5: jusmaniza este texto"
+    validations:
+      required: true
+  - type: textarea
+    id: saida
+    attributes:
+      label: O que voltou
+    validations:
+      required: true
+  - type: textarea
+    id: esperado
+    attributes:
+      label: O que deveria ter feito
+      description: Cite a frase errada e diga como um advogado cuidadoso a escreveria. Informe o padrão (J01 a J33) se souber.
+    validations:
+      required: true
