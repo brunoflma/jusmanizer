@@ -20,6 +20,7 @@ São **34 padrões de revisão**, organizados em **oito grupos**, com uma diretr
 | Peça truncada ou confusa | Corrigir o português, dividir os períodos longos e manter uma só designação para cada parte. |
 | Recurso | Revisar transições e repetições, preservando o pedido e o tratamento ao órgão julgador. |
 | Parecer | Ajustar a clareza e o tom, sem mudar a conclusão ou ampliar o alcance da análise. |
+| Resumo ou análise de caso | Manter o tom neutro, atribuir cada afirmação à parte, à prova ou à decisão, e pôr os fatos em ordem cronológica. |
 | Minuta contratual | Revisar a redação autoral, preservando partes, obrigações, valores e prazos. |
 | Mensagem ao cliente | Trocar o excesso de formalismo por uma comunicação profissional e acessível. |
 | Texto com a voz do escritório | Usar uma amostra de escrita para orientar o ritmo, o vocabulário e a pontuação. |
@@ -208,7 +209,7 @@ Escolha o agente e o destino de instalação oferecidos pelo instalador.
 | J28 | A forma de tratamento adequada ao grau de jurisdição. |
 | J29 | A formalidade própria de cada tipo de documento. |
 | J30 | Fórmulas forenses consagradas, sem tratá-las isoladamente como defeitos. |
-| J31 | Fatos, nomes, números, datas, pedidos, julgados e fontes do original. |
+| J31 | Fatos, nomes, números, datas, pedidos, julgados e fontes do original, e quem afirma cada coisa: o que a parte alega não vira fato provado. |
 | J32 | A identificação clara do referente de expressões como “isso” ou “o referido”, também quando o pronome pode se referir a duas partes. |
 
 </details>
