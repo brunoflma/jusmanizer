@@ -181,7 +181,7 @@ Escolha o agente e o destino de instalação oferecidos pelo instalador.
 
 | Padrão | O que observar |
 | :--- | :--- |
-| J19 | Negrito decorativo, sem função de destacar um dado objetivo. |
+| J19 | Negrito decorativo, sem função de destacar um dado objetivo, e parágrafo do corpo aberto por número. |
 | J20 | Iniciais maiúsculas indevidas no meio de títulos, ou título escrito para impressionar em vez de dizer o que a seção contém. |
 | J21 | Aspas curvas onde a convenção do texto pede aspas retas. |
 | J22 | Emojis, setas e linhas decorativas no corpo da peça. |

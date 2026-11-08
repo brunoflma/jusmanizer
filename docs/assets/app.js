@@ -152,7 +152,7 @@ const ruleDescriptions = {
   J16: "Atribuições à doutrina ou à jurisprudência sem fonte, e afirmações sobre o estado da jurisprudência que a pesquisa não sustenta.",
   J17: "Rodeios desnecessários no lugar de uma afirmação direta.",
   J18: "Conclusões genéricas, sem a consequência já sustentada pelo texto.",
-  J19: "Negrito decorativo, sem função de destacar dados objetivos.",
+  J19: "Negrito decorativo e parágrafo do corpo aberto por número.",
   J20: "Iniciais maiúsculas indevidas no meio dos títulos, ou título de efeito que não diz o que a seção contém.",
   J21: "Aspas curvas onde a convenção de escrita pede aspas retas.",
   J22: "Emojis, setas e linhas decorativas no corpo de uma peça.",

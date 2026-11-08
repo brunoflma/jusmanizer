@@ -173,7 +173,38 @@ check("J20 Title Case em título", "J20" in {o["padrao"] for o in r20["ocorrenci
 r20b = jm.analisar(["DOS FATOS"], titulos={0})
 check("J20 versal forense não dispara", "J20" not in {o["padrao"] for o in r20b["ocorrencias"]})
 check("J20 não mede parágrafo comum", "J20" not in ids("Da Perda Da Qualidade De Segurado"))
+r20c = jm.analisar(["I.1 · Do Contrato de Mútuo", "1. Da Mora do Réu"], titulos={0, 1})
+check("J20 numeração do título não conta como palavra",
+      "J20" not in {o["padrao"] for o in r20c["ocorrencias"]})
+r20d = jm.analisar(["I.1 · Da Perda Da Qualidade"], titulos={0})
+check("J20 com numeração ainda acusa o Title Case",
+      "J20" in {o["padrao"] for o in r20d["ocorrencias"]})
 check("J21 aspas curvas", "J21" in ids("Ele disse “o prazo venceu” e saiu."))
+r21 = jm.analisar(["Ele disse “o prazo venceu” e saiu."])
+check("J21 um par de aspas é uma ocorrência", r21["por_padrao"].get("J21") == 1)
+check("J21 aspa solta conta sozinha", jm.analisar(["O réu’ saiu."])["por_padrao"].get("J21") == 1)
+
+
+def j19(md):
+    ps, tit = jm.paragrafos_prosa_markdown(md)
+    return [o for o in jm.analisar(ps, titulos=tit)["ocorrencias"] if o["padrao"] == "J19"]
+
+
+check("J19 parágrafos de corpo numerados",
+      len(j19("1. Tempestividade. O recurso é tempestivo.\n\n"
+              "2. Preparo. O preparo foi recolhido.")) == 2)
+check("J19 numerado depois de prosa, mesmo após uma enumeração",
+      len(j19("A autora requer:\n\n1. a citação;\n\n2. a procedência.\n\n"
+              "No mérito, a sentença errou.\n\n3. O réu confessou.\n\n4. A prova é documental.")) == 2)
+check("J19 enumeração depois de dois-pontos não dispara",
+      not j19("A autora requer:\n\n1. a citação do réu;\n\n2. a procedência do pedido."))
+check("J19 item de enumeração com linha de continuação não dispara",
+      not j19("A autora requer:\n\n1. a citação do réu, para que\nresponda no prazo legal;\n\n"
+              "2. a procedência do pedido."))
+check("J19 parágrafo numerado isolado não dispara", not j19("O prazo vence hoje.\n\n1. Item único."))
+check("J19 título numerado não dispara", not j19("## 1. Da Mora\n\n## 2. Do Dano\n\nTexto."))
+check("J19 número no meio do parágrafo não dispara",
+      not j19("O art. 1.000 do CPC. 2. O valor é R$ 3.000,00.\n\nOutro 3. parágrafo."))
 check("J22 emoji", "J22" in ids("✅ Pedido deferido"))
 check("J22 régua horizontal", "J22" in ids("----"))
 check("J22 régua não é J01", "J01" not in ids("----"))

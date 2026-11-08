@@ -39,7 +39,7 @@ from __future__ import annotations
 import re
 from collections import Counter
 
-VERSAO = "1.2.0"
+VERSAO = "1.3.0"
 
 # ── RISCA (J01) ───────────────────────────────────────────────────────────────────────
 # Quatro formas do mesmo tique. Ordem das alternativas importa: a classe Unicode primeiro, o
@@ -158,27 +158,28 @@ PADROES = {
                        "(requer:, in verbis:, a saber:); ligando duas orações, use ponto final, "
                        "vírgula ou conjunção (porque, pois)"},
     "J03": {"nome": "não X, mas Y", "grupo": "A", "severidade": "erro",
-            "remedio": "afirmar Y diretamente; manter o contraste só quando X foi alegado pela "
-                       "parte contrária"},
+            "remedio": "afirmar Y sem a negação; o contraste só fica quando X é alegação da "
+                       "parte contrária ou da decisão recorrida"},
     "J04": {"nome": "âncora repetida", "grupo": "A", "severidade": "aviso",
             "remedio": "depois da primeira menção o nome basta ('a notificação'); o dado volta "
                        "só onde o leitor precisa dele para conferir"},
     "J05": {"nome": "frase de efeito", "grupo": "A", "severidade": "erro",
-            "remedio": "trocar a fórmula pela afirmação específica, com fato e dispositivo"},
+            "remedio": "dizer o ponto concreto, com fato e dispositivo, sem a fórmula"},
     "J06": {"nome": "preâmbulo encenado", "grupo": "A", "severidade": "aviso",
-            "remedio": "remover o anúncio e manter a afirmação; uma fórmula isolada é tolerada, "
-                       "a série (3 ou mais no texto) é erro"},
+            "remedio": "tirar o anúncio e deixar a afirmação; uma fórmula isolada se tolera, "
+                       "três ou mais no texto são erro"},
     "J08": {"nome": "tríade forçada", "grupo": "B", "severidade": "aviso",
-            "remedio": "usar o número de qualidades que o fato pede: uma, duas, quatro"},
+            "remedio": "tantos itens quantos o fato tiver; três só quando o direito enumera "
+                       "três"},
     "J09": {"nome": "aberturas repetidas", "grupo": "B", "severidade": "aviso",
-            "remedio": "fundir os períodos, trocar o sujeito ou abrir pela ação"},
+            "remedio": "juntar os períodos, mudar o sujeito ou começar pelo verbo"},
     "J10": {"nome": "qualificador empilhado", "grupo": "B", "severidade": "aviso",
-            "remedio": "uma qualificação, quando juridicamente devida, e direta"},
+            "remedio": "uma ressalva só, direta, quando o direito a exige"},
     "J12": {"nome": "vocabulário de IA no jargão forense", "grupo": "C", "severidade": "aviso",
-            "remedio": "um conectivo por parágrafo; preferir a ligação lógica implícita; "
-                       "'robusto', 'fulcral', 'destarte', 'diapasão' saem sempre"},
+            "remedio": "um conectivo por parágrafo, e a ligação implícita vale mais; "
+                       "'robusto', 'fulcral', 'destarte' e 'diapasão' saem sempre"},
     "J13": {"nome": "significado inflado", "grupo": "C", "severidade": "aviso",
-            "remedio": "a força vem do fato e do dispositivo, não do adjetivo"},
+            "remedio": "tirar o adjetivo de virada e deixar o fato e o dispositivo"},
     "J15": {"nome": "gerúndio de fechamento", "grupo": "C", "severidade": "aviso",
             "remedio": "cortar o gerúndio ou convertê-lo em afirmação com fundamento próprio"},
     "J16": {"nome": "atribuição vaga", "grupo": "C", "severidade": "aviso",
@@ -188,21 +189,24 @@ PADROES = {
             "remedio": "usar 'é', 'são', 'tem'"},
     "J18": {"nome": "conclusão genérica", "grupo": "C", "severidade": "aviso",
             "remedio": "a conclusão nomeia a consequência jurídica específica"},
+    "J19": {"nome": "parágrafo numerado", "grupo": "D", "severidade": "aviso",
+            "remedio": "tirar o número do início do parágrafo; a seção vai em título, e só a "
+                       "enumeração curta depois de dois-pontos leva número"},
     "J20": {"nome": "Title Case em título", "grupo": "D", "severidade": "aviso",
             "remedio": "preposição e artigo em minúscula no meio do título (Da Perda da "
                        "Qualidade de Segurado); rótulo forense em versal (DOS FATOS) fica"},
     "J21": {"nome": "aspas curvas", "grupo": "D", "severidade": "aviso",
             "remedio": "aspas retas; corrigível com corrigir_seguro()"},
     "J22": {"nome": "emoji, seta ou régua decorativa", "grupo": "D", "severidade": "aviso",
-            "remedio": "remover; texto profissional não leva decoração"},
+            "remedio": "tirar a decoração; texto profissional não a leva"},
     "J23": {"nome": "rastro de chat", "grupo": "E", "severidade": "erro",
-            "remedio": "remover o invólucro de conversa e o vocabulário de sistema; pendência "
+            "remedio": "cortar o invólucro de conversa e o vocabulário de sistema; pendência "
                        "real se escreve em português de advogado e se resolve antes da entrega"},
     "J24": {"nome": "isenção de corte de conhecimento ou palpite", "grupo": "E",
             "severidade": "aviso",
-            "remedio": "dizer o que a fonte mostra, ou cortar; palpite nunca vira fato"},
+            "remedio": "dizer o que a fonte mostra, ou cortar; palpite não vira fato"},
     "J25": {"nome": "título repetido na primeira frase", "grupo": "E", "severidade": "aviso",
-            "remedio": "deixar o título fazer o trabalho; cortar a frase que o repete"},
+            "remedio": "cortar a frase que repete o título; o argumento começa na seguinte"},
     "J34": {"nome": "período encaixado", "grupo": "H", "severidade": "aviso",
             "remedio": "dividir em períodos com sujeito e verbo próximos, um fato por período, "
                        "sem perder a relação lógica (porque, por isso, desde que)"},
@@ -281,7 +285,8 @@ _RX = {
         r"dúvidas?\s+de\s+que|é\s+cert[oa]\s+que|é\s+inegáve(?:l|is)\b|indubitavelmente|"
         r"inquestionavelmente|obviamente|evidentemente|[aà]\s+toda\s+evidência|"
         r"sem\s+(?:sombra\s+de\s+)?(?:a\s+menor\s+)?dúvida)", _I),
-    "J21": re.compile(r"[“”‘’]"),
+    # Um par de aspas é UMA ocorrência; aspa solta conta sozinha.
+    "J21": re.compile(r"“[^”\n]{0,400}”|‘[^’\n]{0,400}’|[“”‘’]"),
     "J22": re.compile(r"[←-⇿☀-➿\U0001F300-\U0001FAFF]"),
     "J23": re.compile(
         r"\b(?:espero\s+ter\s+ajudado|segue(?:m)?\s+abaixo|ótima\s+pergunta|você\s+está\s+"
@@ -390,8 +395,13 @@ _FUNCAO = {"da", "de", "do", "das", "dos", "e", "em", "no", "na", "nos", "nas", 
            "as", "os", "para", "com", "por", "sem", "sob", "ao", "aos", "à", "às", "ou"}
 
 
+# Numeração de título ("I.1 · ", "1. ", "II – ") não é palavra do título. Sem tirá-la, o
+# "Do" de "I.1 · Do Contrato" contaria como meio de título.
+_RX_NUMERACAO = re.compile(r"^\s*[IVXLCDM\d]+(?:\.[IVXLCDM\d]+)*\.?\s*[·|)\-–—.]?\s+")
+
+
 def _titulo_em_title_case(txt):
-    s = txt.strip()
+    s = _RX_NUMERACAO.sub("", txt.strip(), count=1)
     if s.isupper():
         return False
     palavras = re.findall(r"[\wÀ-ÿ]+", s)
@@ -400,6 +410,35 @@ def _titulo_em_title_case(txt):
     meio = palavras[1:]
     funcao_capitalizada = [w for w in meio if w.lower() in _FUNCAO and w[0].isupper()]
     return len(funcao_capitalizada) >= 1
+
+
+# J19 parágrafo numerado: o corpo abre parágrafos com "1.", "2.", "3.1", copiando a numeração
+# do roteiro. Fica fora a enumeração legítima, isto é, itens curtos logo depois de um parágrafo
+# que termina em dois-pontos (com as linhas de continuação de cada item), e o parágrafo numerado
+# isolado: só se acusa a partir de dois.
+_RX_PARAGRAFO_NUMERADO = re.compile(
+    r"^\(?(?:\d{1,3}[.)]|\d{1,3}(?:\.\d{1,2})+[.)]?)\s+(?=[\"«(A-Za-zÀ-ÖØ-öø-ÿ])")
+LIMITE_ITEM_ENUMERACAO = 200
+
+
+def paragrafos_numerados(paras, titulos=frozenset()):
+    """Índices dos parágrafos de corpo abertos por número que não são enumeração."""
+    achados, em_enumeracao, anterior = [], False, ""
+    for i, txt in enumerate(paras):
+        t = " ".join(re.sub(r"\*\*|\*", "", txt).split())
+        if i in titulos:
+            em_enumeracao, anterior = False, ""
+            continue
+        if _RX_PARAGRAFO_NUMERADO.match(t):
+            if anterior.endswith(":"):
+                em_enumeracao = True
+            if not (em_enumeracao and len(t) <= LIMITE_ITEM_ENUMERACAO):
+                em_enumeracao = False
+                achados.append(i)
+        elif not anterior.endswith(":") and anterior[-1:] in (".", ";", "!", "?", ""):
+            em_enumeracao = False
+        anterior = t.rstrip()
+    return achados if len(achados) >= 2 else []
 
 
 def _contexto(texto, ini, fim, raio=60):
@@ -490,6 +529,10 @@ def _padroes_regex(paras, titulos, excluir):
                 k += 3
             else:
                 k += 1
+    if "J19" not in excluir:
+        for k in paragrafos_numerados(paras, titulos):
+            m = _RX_PARAGRAFO_NUMERADO.match(paras[k].lstrip("*"))
+            ocs.append(_ocorrencia("J19", k, paras[k], 0, m.end() if m else 0))
     # J06 em série: 3 ou mais no texto inteiro sobem para erro.
     if sum(1 for o in ocs if o["padrao"] == "J06") >= 3:
         for o in ocs:
