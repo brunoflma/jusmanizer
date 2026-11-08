@@ -1,4 +1,4 @@
-<img src="docs/cover.svg" width="100%" alt="Jusmanizer. O argumento é seu. A escrita também. Skill aberta de revisão de estilo jurídico.">
+<img src="docs/cover.png" width="100%" alt="Jusmanizer. O argumento é seu. A escrita também. Skill aberta de revisão de estilo e de língua para texto jurídico.">
 
 # Jusmanizer
 

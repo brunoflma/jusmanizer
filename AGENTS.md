@@ -29,8 +29,9 @@ Python puro. Não há etapa de build.
   entra no fim. Um tell novo só ganha padrão quando nenhum existente já
   o implica; prefira dobrar num existente. Cada expressão vigiada mora num padrão só. Se
   acrescentar ou remover, atualize a lista do README, as contagens do README e do site
-  (`docs/index.html`, `docs/assets/app.js`, `scripts/build-site.py`, a imagem de
-  compartilhamento), o `PADROES` do detector (só os "det.") e toda referência `Jnn`. O
+  (`docs/index.html`, `docs/assets/app.js`, `scripts/build-site.py`), regere a capa do README
+  e a imagem de compartilhamento (`python scripts/render-capa.py`, que fotografa
+  `docs/capa.html` com o mesmo CSS do site), o `PADROES` do detector (só os "det.") e toda referência `Jnn`. O
   validador deriva a contagem dos títulos e reprova referência a padrão inexistente.
 - **Versão.** Igual em quatro lugares: `metadata.version` do SKILL.md, `version` dos dois
   `plugin.json` (`.claude-plugin` e `.cursor-plugin`) e `VERSAO` do `jusmanizer.py`. O README é escrito para o advogado, sem versão nem histórico;

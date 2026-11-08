@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1280">
+  <meta name="robots" content="noindex">
+  <title>Jusmanizer · capa</title>
+  <!-- Capa do README e imagem de compartilhamento. Usa o mesmo site.css e a mesma
+       marcação do destaque do site, para que as duas peças nunca divirjam.
+       Gerada por scripts/render-capa.py (1280 x 640). -->
+  <link rel="stylesheet" href="assets/site.css">
+  <style>
+    html, body { width: 1280px; height: 640px; margin: 0; overflow: hidden; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .capa { position: relative; width: 1280px; height: 640px; overflow: hidden; background: var(--paper); }
+    .capa.hero { border: 0; }
+    .capa .hero-grid { padding: 50px 64px 0 96px; gap: 52px; grid-template-columns: 1.12fr .88fr; align-items: start; }
+    .capa .brand { margin-bottom: 38px; }
+    .capa .brand-name, .capa .mark { font-size: 32px; }
+    .capa .kicker { margin-bottom: 16px; font-size: 13px; }
+    .capa h1 { font-size: 66px; line-height: 1.03; white-space: nowrap; }
+    .capa .lead { margin-top: 26px; font-size: 21px; line-height: 1.55; max-width: 29em; }
+    .capa .hero-foot { margin-top: 24px; font-size: 16px; }
+    .capa .sheet-stage { margin-top: 0; padding: 12px 10px 44px; }
+    .capa .sheet { padding: 26px 28px 20px; }
+    .capa .sheet-text { font-size: 21px; }
+    .capa .sheet-stage figcaption { font-size: 21px; }
+    .capa .hero-strip { position: absolute; left: 96px; right: 64px; bottom: 0; padding: 18px 0 24px; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <section class="capa hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="brand"><span class="mark" aria-hidden="true">J<span class="mark-dot">.</span></span><span class="brand-name">Jusmanizer</span></div>
+        <p class="kicker"><span class="dot" aria-hidden="true"></span> Skill aberta · Português jurídico</p>
+        <h1>O argumento é seu.<span>A escrita também.</span></h1>
+        <p class="lead">A IA ajuda no rascunho. O Jusmanizer orienta a revisão, tira o excesso, corrige a língua e divide o que o juiz teria de ler duas vezes, sem mudar o que o texto afirma.</p>
+        <p class="hero-foot">A análise jurídica e a conferência final continuam com você.</p>
+      </div>
+      <figure class="sheet-stage" aria-label="Ilustração de uma revisão de estilo">
+        <div class="sheet sheet-under" aria-hidden="true"></div>
+        <div class="sheet">
+          <div class="sheet-head"><span>Minuta · revisão de estilo</span><span class="sheet-mark" aria-hidden="true">§</span></div>
+          <p class="sheet-label">Rascunho</p>
+          <p class="sheet-text"><s>Cumpre esclarecer que</s> a autora pagou o valor indicado. <s>Insta salientar que</s> o comprovante está no Doc. 03.</p>
+          <span class="sheet-margin" aria-hidden="true">J06</span>
+          <div class="sheet-rule"><span aria-hidden="true">↓</span> Afirmar, em vez de anunciar</div>
+          <p class="sheet-label">Revisado</p>
+          <p class="sheet-text sheet-final">A autora pagou o valor indicado, conforme o comprovante juntado no Doc. 03.</p>
+          <div class="sheet-foot"><span>Preâmbulo encenado</span><span>Exemplo ilustrativo</span></div>
+        </div>
+        <figcaption>A forma melhora. O fato fica.</figcaption>
+      </figure>
+    </div>
+    <ul class="hero-strip">
+      <li><span class="dot" aria-hidden="true"></span> <strong id="regras">34</strong> regras em <strong id="grupos">8</strong> grupos</li>
+      <li><span class="dot" aria-hidden="true"></span> Estilo e língua</li>
+      <li><span class="dot" aria-hidden="true"></span> Licença MIT</li>
+    </ul>
+  </section>
+</body>
+</html>
