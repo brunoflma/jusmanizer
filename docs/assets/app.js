@@ -137,16 +137,16 @@ const ruleDescriptions = {
   J01: "Risca como ligação automática entre frases. Hífens, intervalos e transcrições exigem tratamento próprio.",
   J02: "Dois-pontos emendando orações, em vez de introduzir uma lista, citação ou fórmula forense.",
   J03: "Contraste entre X e Y sem uma oposição real a enfrentar no texto.",
-  J04: "Fecho isolado ou fragmento dramático que apenas repete o ponto anterior ou explica o exemplo já mostrado.",
-  J05: "Frases de efeito no lugar de informações específicas.",
+  J04: "Fecho isolado, ideia repetida ou o mesmo pedido ao fim de cada tópico.",
+  J05: "Frases de efeito no lugar de informações específicas, como busca a tutela do Poder Judiciário.",
   J06: "Preâmbulos repetidos, como cumpre esclarecer, insta salientar e vale dizer.",
   J07: "Resposta a uma objeção que ninguém apresentou.",
   J08: "Três qualidades ou exemplos usados por reflexo, sem necessidade do argumento.",
-  J09: "Períodos sucessivos que começam da mesma forma.",
+  J09: "Períodos ou parágrafos que começam da mesma forma, e eco de palavra comum.",
   J10: "Qualificadores empilhados que deixam a afirmação imprecisa.",
   J11: "Voz passiva sem sujeito, quando a ativa cabe sem alterar a atribuição.",
   J12: "Vocabulário de IA repetido no jargão jurídico.",
-  J13: "Expressões que inflam a importância de um fato sem explicar por quê.",
+  J13: "Expressões e adjetivos genéricos que inflam um fato sem medi-lo.",
   J14: "Relações vagas entre pessoas, documentos e acontecimentos.",
   J15: "Gerúndios de fechamento que aparentam explicar, mas pouco acrescentam.",
   J16: "Atribuições à doutrina ou à jurisprudência sem fonte, e afirmações sobre o estado da jurisprudência que a pesquisa não sustenta.",
@@ -166,7 +166,8 @@ const ruleDescriptions = {
   J30: "Fórmulas forenses consagradas não são defeitos apenas por sua forma.",
   J31: "A reescrita deve preservar fatos, nomes, datas, valores, pedidos e fontes.",
   J32: "O referente precisa estar claro: qual contrato, qual documento, qual notificação?",
-  J33: "A resposta a quem já conhece o caso abre pela decisão, sem recontar o que ele já sabe."
+  J33: "A resposta a quem já conhece o caso abre pela decisão, sem recontar o que ele já sabe.",
+  J34: "Período longo, com orações encaixadas, dividido para ser entendido na primeira leitura."
 };
 
 function renderRules(metadata) {

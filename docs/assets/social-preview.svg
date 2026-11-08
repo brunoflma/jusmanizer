@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
   <title id="title">Jusmanizer. O argumento é seu. A escrita também.</title>
-  <desc id="desc">Skill aberta para revisão de estilo jurídico, com 33 padrões em sete grupos.</desc>
+  <desc id="desc">Skill aberta para revisão de estilo jurídico, com 34 padrões em oito grupos.</desc>
   <rect width="1280" height="640" fill="#0b1118"/>
   <rect x="24" y="24" width="1232" height="592" rx="9" fill="none" stroke="#2c3e50" stroke-width="2"/>
   <text x="64" y="109" fill="#ccff80" font-family="'JetBrains Mono',Consolas,monospace" font-size="40" font-weight="600" letter-spacing="-1.2">j.</text>
@@ -13,7 +13,7 @@
   <text x="66" y="464" fill="#9aa9b9" font-family="Manrope,Arial,sans-serif" font-size="26">A IA ajuda no rascunho.</text>
   <text x="66" y="504" fill="#9aa9b9" font-family="Manrope,Arial,sans-serif" font-size="26">A escrita precisa continuar sendo sua.</text>
   <rect x="64" y="543" width="182" height="47" rx="4" fill="#ccff80"/>
-  <text x="84" y="574" fill="#213600" font-family="'JetBrains Mono',Consolas,monospace" font-size="17" font-weight="600">33 PADRÕES</text>
+  <text x="84" y="574" fill="#213600" font-family="'JetBrains Mono',Consolas,monospace" font-size="17" font-weight="600">34 PADRÕES</text>
   <rect x="258" y="543" width="164" height="47" rx="4" fill="#131d27" stroke="#2c3e50"/>
   <text x="279" y="574" fill="#dde3ed" font-family="'JetBrains Mono',Consolas,monospace" font-size="17">6 GRUPOS</text>
   <g transform="translate(774 177)">

@@ -47,7 +47,7 @@ label(62, 307, "A escrita também.", "Newsreader-Italic.ttf", 78, "#ccff80")
 label(66, 435, "A IA ajuda no rascunho.", "Manrope.ttf", 26, "#9aa9b9", 450)
 label(66, 475, "A escrita precisa continuar sendo sua.", "Manrope.ttf", 26, "#9aa9b9", 450)
 box(64, 543, 246, 590, "#ccff80", radius=4)
-label(84, 557, "33 PADRÕES", "JetBrainsMono.ttf", 17, "#213600", 600)
+label(84, 557, "34 PADRÕES", "JetBrainsMono.ttf", 17, "#213600", 600)
 box(258, 543, 422, 590, "#131d27", "#2c3e50", 4)
 label(279, 557, "6 GRUPOS", "JetBrainsMono.ttf", 17, "#dde3ed")
 

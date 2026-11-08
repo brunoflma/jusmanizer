@@ -8,7 +8,7 @@
   · padrões numerados sem lacuna (### J01 … ### Jnn) no SKILL.md; a contagem vem dos títulos;
   · README com cada padrão uma vez, e contagem de padrões e de grupos igual à do SKILL.md;
   · toda referência Jnn do SKILL.md, do README e do AGENTS.md aponta para padrão existente;
-  · SKILL.md com até 5.500 palavras, porque ele é lido inteiro a cada uso;
+  · SKILL.md com até 6.000 palavras, porque ele é lido inteiro a cada uso;
   · manifestos de plugin com a primeira frase da descrição do SKILL.md;
   · nenhuma risca (travessão ou meia-risca) na prosa do SKILL.md fora de linha de exemplo
     (que começa por `>`), de tabela (`|`), de frontmatter e de trecho em código;
@@ -28,7 +28,7 @@ except Exception:
     pass
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-LIMITE_PALAVRAS = 5500
+LIMITE_PALAVRAS = 6000
 falhas = []
 
 

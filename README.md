@@ -4,9 +4,9 @@
 
 **A IA ajuda no rascunho. A escrita precisa continuar sendo sua.**
 
-O Jusmanizer é uma skill de revisão de estilo para textos jurídicos em português. Ela orienta o assistente de IA a retirar excessos, repetições e construções artificiais de petições, recursos, pareceres, minutas contratuais e comunicações, com atenção à formalidade e ao conteúdo original.
+O Jusmanizer é uma skill de revisão de estilo e de língua para textos jurídicos em português. Ela orienta o assistente de IA a retirar excessos, repetições e construções artificiais de petições, recursos, pareceres, minutas contratuais e comunicações, a corrigir gramática, concordância, regência, pontuação e crase, e a dividir os períodos longos demais, para que o juiz entenda a peça na primeira leitura. Tudo com atenção à formalidade e ao conteúdo original.
 
-São **33 padrões de revisão**, organizados em **sete grupos**, com uma diretriz central: preservar fatos, nomes, valores, datas, pedidos, fontes e transcrições. O resultado continua sujeito à conferência do advogado.
+São **34 padrões de revisão**, organizados em **oito grupos**, com uma diretriz central: preservar fatos, nomes, valores, datas, pedidos, fontes e transcrições. O resultado continua sujeito à conferência do advogado.
 
 **[Conheça a página e veja as demonstrações ↗](https://brunoflma.github.io/jusmanizer/)** · [Baixar a skill em ZIP](https://brunoflma.github.io/jusmanizer/downloads/jusmanizer.zip) · [Ler o SKILL.md](SKILL.md) · [Instalação](#como-instalar)
 
@@ -17,6 +17,7 @@ São **33 padrões de revisão**, organizados em **sete grupos**, com uma diretr
 | Você está trabalhando em | O que pode pedir |
 | :--- | :--- |
 | Petição ou contestação | Retirar preâmbulos repetidos e tornar a exposição dos fatos mais direta. |
+| Peça truncada ou confusa | Corrigir o português, dividir os períodos longos e manter uma só designação para cada parte. |
 | Recurso | Revisar transições e repetições, preservando o pedido e o tratamento ao órgão julgador. |
 | Parecer | Ajustar a clareza e o tom, sem mudar a conclusão ou ampliar o alcance da análise. |
 | Minuta contratual | Revisar a redação autoral, preservando partes, obrigações, valores e prazos. |
@@ -70,8 +71,10 @@ Estes justificam a revisão numa única ocorrência:
 ### Um pedido para começar
 
 ```text
-Use o Jusmanizer para revisar o estilo deste texto jurídico. Preserve os
-fatos, nomes, valores, datas, pedidos, referências e transcrições. Mantenha
+Use o Jusmanizer para revisar o estilo e o português deste texto jurídico.
+Quem vai ler é um juiz com pouco tempo: a peça precisa ser entendida na
+primeira leitura. Preserve os fatos, nomes, valores, datas, pedidos,
+referências e transcrições. Chame cada parte sempre do mesmo jeito. Mantenha
 a formalidade adequada ao destinatário e explique brevemente as alterações.
 Se faltar uma informação, pergunte em vez de completar por conta própria.
 
@@ -128,7 +131,7 @@ Escolha o agente e o destino de instalação oferecidos pelo instalador.
 
 </details>
 
-## As 33 regras, em linguagem de advogado
+## As 34 regras, em linguagem de advogado
 
 <details>
 <summary><strong>A. Encenar em vez de afirmar: J01 a J07</strong></summary>
@@ -138,9 +141,9 @@ Escolha o agente e o destino de instalação oferecidos pelo instalador.
 | J01 | Risca usada como conector universal, preservando hífens, transcrições e intervalos numéricos. |
 | J02 | Dois-pontos emendando orações, em vez de introduzir lista, citação ou fórmula forense. |
 | J03 | Contraste “não X, mas Y” sem uma oposição real a enfrentar. |
-| J04 | Fecho solto ou fragmento dramático que apenas repete o ponto anterior ou explica o exemplo que o leitor acabou de ver; o mesmo valor, data ou artigo repetido à exaustão ao longo da peça. |
-| J05 | Frase de efeito no lugar de uma informação concreta. |
-| J06 | Preâmbulos em série, como “cumpre esclarecer”, “insta salientar” e “vale dizer”. |
+| J04 | Fecho solto ou fragmento dramático que apenas repete o ponto anterior ou explica o exemplo que o leitor acabou de ver; a mesma ideia ou o mesmo “Diante do exposto, requer” ao fim de cada tópico; o mesmo valor, data ou artigo repetido à exaustão. |
+| J05 | Frase de efeito no lugar de uma informação concreta, como “busca a tutela do Poder Judiciário”. |
+| J06 | Preâmbulos em série, como “cumpre esclarecer”, “insta salientar”, “vale dizer” e “por fim, e não menos importante”. |
 | J07 | Resposta a uma objeção que ninguém apresentou. |
 
 </details>
@@ -151,7 +154,7 @@ Escolha o agente e o destino de instalação oferecidos pelo instalador.
 | Padrão | O que observar |
 | :--- | :--- |
 | J08 | Três qualidades ou exemplos usados por reflexo. |
-| J09 | Períodos seguidos com a mesma abertura. |
+| J09 | Períodos ou parágrafos seguidos com a mesma abertura, e a mesma palavra comum repetida em poucas linhas. Termo técnico e nome de parte se repetem, sem sinônimo. |
 | J10 | Qualificadores empilhados que enfraquecem a afirmação. |
 | J11 | Voz passiva sem sujeito, quando cabe voz ativa sem alterar a atribuição. |
 
@@ -162,8 +165,8 @@ Escolha o agente e o destino de instalação oferecidos pelo instalador.
 
 | Padrão | O que observar |
 | :--- | :--- |
-| J12 | Vocabulário de IA repetido no jargão forense. |
-| J13 | Importância inflada por expressões genéricas. |
+| J12 | Vocabulário de IA repetido no jargão forense, e conectivo que não decorre da frase anterior (“ou seja”, “assim”). |
+| J13 | Importância inflada por expressões e adjetivos genéricos (“exorbitantes”, “eterna devedora”, “ciclo vicioso”). |
 | J14 | Relações vagas, sem dizer qual é o vínculo entre pessoas ou fatos. |
 | J15 | Gerúndio de fechamento que aparenta explicar, mas não acrescenta informação. |
 | J16 | Atribuição vaga à doutrina ou à jurisprudência, sem fonte identificada, e afirmação sobre o estado da jurisprudência (“matéria pacificada”, “todos os tribunais”) que a pesquisa não sustenta. |
@@ -206,7 +209,7 @@ Escolha o agente e o destino de instalação oferecidos pelo instalador.
 | J29 | A formalidade própria de cada tipo de documento. |
 | J30 | Fórmulas forenses consagradas, sem tratá-las isoladamente como defeitos. |
 | J31 | Fatos, nomes, números, datas, pedidos, julgados e fontes do original. |
-| J32 | A identificação clara do referente de expressões como “isso” ou “o referido”. |
+| J32 | A identificação clara do referente de expressões como “isso” ou “o referido”, também quando o pronome pode se referir a duas partes. |
 
 </details>
 
@@ -218,6 +221,17 @@ Escolha o agente e o destino de instalação oferecidos pelo instalador.
 | J33 | Resposta a cliente ou colega que reconta o que ele já sabe e deixa a decisão para o fim. Não vale para a peça, em que o juiz precisa dos fatos. |
 
 </details>
+
+<details>
+<summary><strong>H. Clareza para quem lê com pressa: J34</strong></summary>
+
+| Padrão | O que observar |
+| :--- | :--- |
+| J34 | Período com várias orações encaixadas, que obriga o juiz a ler duas vezes. Ele é dividido em frases com sujeito e verbo próximos, sem perder a relação lógica. |
+
+</details>
+
+Além dos padrões, a revisão corrige a língua: concordância, regência, pontuação, crase, frase sem sujeito ou sem objeto, “este” e “esse”, hífen de quebra de linha esquecido e designação das partes, que fica a mesma na peça inteira. Transcrições não são corrigidas.
 
 O catálogo completo, com critérios, exceções e exemplos, está no [SKILL.md](SKILL.md). A amostra de voz fornecida pelo advogado tem prioridade sobre preferências gerais de estilo.
 
@@ -235,7 +249,7 @@ Para obter o resultado em formato estruturado:
 python scripts/jusmanizer.py peca.md --json
 ```
 
-O verificador também avisa quando o mesmo valor, data ou artigo aparece seis ou mais vezes no texto. O número do próprio processo não deve entrar nessa conta, e para isso basta informá-lo:
+O verificador também aponta período com mais de 60 palavras, palavra partida na quebra de linha (“contra- to”) e crase indevida (“à partir”, “à Vossa Excelência”, crase antes de verbo ou de pronome). Avisa ainda quando o mesmo valor, data ou artigo aparece seis ou mais vezes no texto. O número do próprio processo não deve entrar nessa conta, e para isso basta informá-lo:
 
 ```text
 python scripts/jusmanizer.py peca.md --ignorar-ancora 0000000-00.0000.0.00.0000

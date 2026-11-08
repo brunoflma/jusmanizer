@@ -16,7 +16,7 @@ def skill_metadata():
     source = (ROOT / "SKILL.md").read_text(encoding="utf-8")
     groups = []
     for line in source.splitlines():
-        group = re.match(r"^## ([A-G])\. (.+)$", line)
+        group = re.match(r"^## ([A-H])\. (.+)$", line)
         rule = re.match(r"^### (J\d{2}) (.+)$", line)
         if group:
             groups.append({"id": group[1], "name": group[2], "rules": []})
@@ -25,8 +25,8 @@ def skill_metadata():
                 raise ValueError("Rule found before a group")
             groups[-1]["rules"].append({"id": rule[1], "name": rule[2]})
     ids = [rule["id"] for group in groups for rule in group["rules"]]
-    if ids != [f"J{i:02}" for i in range(1, 34)] or len(groups) != 7:
-        raise ValueError("The website expects the canonical 33 rules in seven groups")
+    if ids != [f"J{i:02}" for i in range(1, 35)] or len(groups) != 8:
+        raise ValueError("The website expects the canonical 34 rules in eight groups")
     return {"ruleCount": len(ids), "groupCount": len(groups), "groups": groups}
 
 

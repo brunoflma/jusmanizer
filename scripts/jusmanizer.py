@@ -39,7 +39,7 @@ from __future__ import annotations
 import re
 from collections import Counter
 
-VERSAO = "1.1.1"
+VERSAO = "1.2.0"
 
 # ── RISCA (J01) ───────────────────────────────────────────────────────────────────────
 # Quatro formas do mesmo tique. Ordem das alternativas importa: a classe Unicode primeiro, o
@@ -203,6 +203,16 @@ PADROES = {
             "remedio": "dizer o que a fonte mostra, ou cortar; palpite nunca vira fato"},
     "J25": {"nome": "título repetido na primeira frase", "grupo": "E", "severidade": "aviso",
             "remedio": "deixar o título fazer o trabalho; cortar a frase que o repete"},
+    "J34": {"nome": "período encaixado", "grupo": "H", "severidade": "aviso",
+            "remedio": "dividir em períodos com sujeito e verbo próximos, um fato por período, "
+                       "sem perder a relação lógica (porque, por isso, desde que)"},
+    # Revisão de língua: só o que não tem ambiguidade. Não são padrões do catálogo, por isso
+    # o prefixo P; o resto da revisão (concordância, regência) é do redator.
+    "P01": {"nome": "hífen de quebra de linha", "grupo": "língua", "severidade": "erro",
+            "remedio": "juntar a palavra partida na quebra de linha (contra- to vira contrato)"},
+    "P02": {"nome": "crase indevida", "grupo": "língua", "severidade": "erro",
+            "remedio": "sem crase antes de verbo, de pronome pessoal ou demonstrativo, de "
+                       "'partir' e de pronome de tratamento (a Vossa Excelência)"},
 }
 
 _I = re.I | re.U
@@ -213,7 +223,8 @@ _RX = {
     "J05": re.compile(
         r"\b(?:em\s+última\s+análise|a\s+questão\s+de\s+fundo|no\s+cerne\s+da\s+controvérsia|"
         r"o\s+cerne\s+da\s+questão|o\s+que\s+realmente\s+importa|a\s+verdadeira\s+questão|"
-        r"em\s+essência|no\s+fundo,)", _I),
+        r"em\s+essência|no\s+fundo,|busca\s+a\s+tutela\s+do\s+(?:poder\s+)?judiciário|"
+        r"todos\s+os\s+fatos\s+(?:aqui\s+)?narrados)", _I),
     "J06": re.compile(
         r"\b(?:cumpre\s+(?:esclarecer|destacar|ressaltar|salientar|registrar|consignar)|"
         r"cabe\s+(?:ressaltar|salientar|destacar)|(?:é\s+)?importante\s+(?:ressaltar|salientar|"
@@ -221,14 +232,28 @@ _RX = {
         r"consignar|registrar)|vale\s+(?:dizer|ressaltar|destacar|lembrar)|importa\s+"
         r"(?:consignar|destacar|registrar)|não\s+se\s+pode\s+(?:olvidar|perder\s+de\s+vista)|"
         r"impende\s+destacar|urge\s+destacar|mister\s+se\s+faz|forçoso\s+reconhecer|"
-        r"passa-se\s+a\s+demonstrar|como\s+se\s+(?:verá|demonstrará)|conforme\s+se\s+verá)", _I),
+        r"passa-se\s+a\s+demonstrar|como\s+se\s+(?:verá|demonstrará)|conforme\s+se\s+verá|"
+        r"por\s+fim,?\s+e\s+não\s+menos\s+importante)", _I),
     "J10": re.compile(
         r"\b(?:pode-se|poder-se-ia|potencialmente|possivelmente|eventualmente|talvez|em\s+tese|"
         r"aparentemente|presumivelmente|arguivelmente)\b", _I),
     "J13": re.compile(
         r"\b(?:marco\s+crucial|papel\s+(?:fundamental|central)|divisor\s+de\s+águas|"
         r"constante\s+evolução|prova\s+inequívoca\s+do\s+compromisso|de\s+suma\s+importância|"
-        r"extrema\s+relevância|marca\s+indelével|verdadeiro\s+marco)", _I),
+        r"extrema\s+relevância|marca\s+indelével|verdadeiro\s+marco|exorbitantes?\b|"
+        r"eterna\s+devedora|ciclo\s+vicioso|nítida\s+má-fé|nítido\s+abuso)", _I),
+    # P01: palavra partida na quebra de linha e colada com espaço ("contra- to"). Minúscula dos
+    # dois lados; se a segunda parte é conjunção ou artigo, é hífen suspenso e fica
+    # ("micro- e pequenas empresas", "pré- ou pós-operatório").
+    "P01": re.compile(
+        r"\b[a-zà-ÿ]{2,}- (?!(?:e|ou|a|o|as|os|de|da|do|em|no|na|um|uma)\b)[a-zà-ÿ]{2,}\b"),
+    # P02: crase onde não há artigo feminino. Lista fechada de verbos, para não confundir
+    # "à mulher" (substantivo em -er) com infinitivo.
+    "P02": re.compile(
+        r"\bà\s+(?:partir\b|el[ea]s?\b|v(?:ossa|\.)\s*(?:excelência|exa\.?|senhoria)|"
+        r"(?:este|esse|esta|essa|isto|isso)\b|"
+        r"(?:pagar|ser|fazer|ter|dar|receber|cumprir|contar|dizer|ver|haver|apresentar|"
+        r"requerer|julgar|proceder|declarar|condenar|restituir|devolver|indenizar)\b)", _I),
     "J15": re.compile(
         r",\s+(?:demonstrando|evidenciando|garantindo|configurando|restando|revelando|"
         r"comprovando|reforçando|corroborando|ressaltando|destacando|refletindo|contribuindo|"
@@ -335,6 +360,13 @@ def ancoras_repetidas(paragrafos, limite=LIMITE_ANCORA, ignorar=()):
     return saida
 
 
+# J34: período acima de 60 palavras. Corta em ponto, interrogação, exclamação e ponto e
+# vírgula, para que enumeração de pedidos não conte como um período só. Abreviatura (art.,
+# fls.) corta cedo e subconta: o erro é a favor de não acusar.
+LIMITE_PERIODO = 60
+_RX_PERIODO = re.compile(r"(?<=[.!?;])\s+")
+_RX_ITEM_LISTA = re.compile(r"^\s*(?:[a-zA-Z]\)|\(?[a-zA-Z0-9]{1,3}\)|\d+[.)]|[-*•])\s")
+
 # J16 só dispara quando a frase NÃO traz fonte identificável.
 _RX_FONTE = re.compile(
     r"\b(?:STJ|STF|TST|TSE|TNU|TJ[A-Z]{2}|TRF\d?|TRT\d{0,2}|REsp|AREsp|AgInt|AgRg|EDcl|HC|RE|ARE|"
@@ -391,7 +423,7 @@ def _padroes_regex(paras, titulos, excluir):
                 ocs.append(_ocorrencia("J22", i, txt, 0, len(txt)))
             continue
         for pid in ("J03", "J05", "J06", "J13", "J15", "J16", "J17", "J18", "J21", "J22",
-                    "J23", "J24"):
+                    "J23", "J24", "P01", "P02"):
             if pid in excluir:
                 continue
             for m in _RX[pid].finditer(txt):
@@ -423,6 +455,11 @@ def _padroes_regex(paras, titulos, excluir):
                     ini = txt.find(frases[k])
                     ocs.append(_ocorrencia("J09", i, txt, ini, ini + len(frases[k])))
                     break
+        if "J34" not in excluir and i not in titulos:
+            for frase in _RX_PERIODO.split(txt):
+                if len(_RX_PALAVRA.findall(frase)) > LIMITE_PERIODO:
+                    ini = txt.find(frase)
+                    ocs.append(_ocorrencia("J34", i, txt, ini, ini + len(frase)))
         if "J12" not in excluir:
             for k, rx in _RX_VOCAB.items():
                 for m in rx.finditer(txt):
@@ -438,6 +475,21 @@ def _padroes_regex(paras, titulos, excluir):
             pf = {w.lower() for w in re.findall(r"[\wÀ-ÿ]{3,}", primeira)}
             if pt and len(pf) <= 12 and len(pt & pf) >= 0.6 * len(pt):
                 ocs.append(_ocorrencia("J25", i + 1, prox, 0, len(primeira)))
+    # J09 em escala de parágrafo: três parágrafos seguidos com a mesma abertura de duas
+    # palavras. Título e item de lista ("a)", "1.", "-") ficam fora: lista se abre igual.
+    if "J09" not in excluir:
+        def abertura(k):
+            if k in titulos or _RX_ITEM_LISTA.match(paras[k]):
+                return ""
+            return " ".join(re.findall(r"[\wÀ-ÿ]+", paras[k])[:2]).lower()
+        k = 0
+        while k + 2 < len(paras):
+            a = abertura(k)
+            if a and a == abertura(k + 1) == abertura(k + 2):
+                ocs.append(_ocorrencia("J09", k, paras[k], 0, len(a)))
+                k += 3
+            else:
+                k += 1
     # J06 em série: 3 ou mais no texto inteiro sobem para erro.
     if sum(1 for o in ocs if o["padrao"] == "J06") >= 3:
         for o in ocs:

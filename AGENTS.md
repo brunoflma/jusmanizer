@@ -8,10 +8,10 @@ O Jusmanizer é uma skill de agente escrita em Markdown, mais um detector determ
 Python puro. Não há etapa de build.
 
 - `SKILL.md` é o produto e a única fonte do prompt. Traz o frontmatter portátil, a explicação
-  de por que o texto de IA soa assim, o fluxo de trabalho e os 33 padrões em sete grupos,
+  de por que o texto de IA soa assim, o fluxo de trabalho, a revisão de língua e os 34 padrões em oito grupos,
   ordenados por força.
 - `README.md` é para o advogado: o problema, antes e depois, o que a ferramenta nunca faz, uso
-  diário, instalação passo a passo, as 33 regras em linguagem forense, licença e
+  diário, instalação passo a passo, as 34 regras em linguagem forense, licença e
   responsabilidade. Sem jargão técnico no corpo.
 - `scripts/jusmanizer.py` é o detector (stdlib pura) e a CLI. `scripts/test_jusmanizer.py`
   são os testes standalone (`N PASS · M FAIL`, exit code).
@@ -24,7 +24,7 @@ Python puro. Não há etapa de build.
 ## Regras para mudanças
 
 - **Padrões.** Numerados de J01 em diante sem lacuna. J01 a J26 vão do mais forte ao mais
-  fraco; J27 a J32 são as regras próprias do texto jurídico; J33 é o leitor errado. Número
+  fraco; J27 a J32 são as regras próprias do texto jurídico; J33 é o leitor errado; J34 é a clareza para quem lê com pressa. Número
   publicado não muda, porque quem usa o catálogo cita os padrões pelo número; padrão novo
   entra no fim. Um tell novo só ganha padrão quando nenhum existente já
   o implica; prefira dobrar num existente. Cada expressão vigiada mora num padrão só. Se
@@ -36,12 +36,13 @@ Python puro. Não há etapa de build.
   `plugin.json` (`.claude-plugin` e `.cursor-plugin`) e `VERSAO` do `jusmanizer.py`. O README é escrito para o advogado, sem versão nem histórico;
   mudanças de comportamento ficam registradas na mensagem de commit e na tag. Não acrescente `version` de nível superior ao frontmatter.
 - **Descrição.** Os manifestos de plugin usam a primeira frase da descrição do SKILL.md.
-- **Tamanho.** O SKILL.md é lido inteiro a cada uso. O validador limita a 5.500 palavras;
+- **Tamanho.** O SKILL.md é lido inteiro a cada uso. O validador limita a 6.000 palavras;
   mudança que acrescenta palavras precisa merecê-las.
 - **Exemplos.** O "Depois" de cada exemplo só usa fato, data, documento e dispositivo que já
   estavam no "Antes". Exemplo que inventa ensina o modelo a inventar.
 - **Risca na prosa.** O SKILL.md não pode ter travessão nem meia-risca fora de linha de
   exemplo (`>`), de tabela ou de trecho em código. O validador reprova.
+- **Revisão de língua.** O detector marca com P (P01, P02) só o erro de língua sem ambiguidade; esses códigos não são padrões do catálogo e não ganham número J. Concordância e regência ficam com o redator.
 - **Detector.** Todo padrão detectado tem teste positivo e teste negativo (o caso legítimo que
   NÃO deve disparar). Hífen ortográfico, intervalo numérico, fórmula forense antes de
   dois-pontos e transcrição são os falsos positivos que mais custam em peça; mantenha os

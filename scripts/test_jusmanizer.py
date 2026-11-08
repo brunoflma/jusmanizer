@@ -196,6 +196,42 @@ r25 = jm.analisar(["Da prescrição", "A prescrição é o tema deste capítulo.
                    "O prazo prescricional é de três anos."], titulos={0})
 check("J25 título repetido na primeira frase", "J25" in {o["padrao"] for o in r25["ocorrencias"]})
 
+# ── 1.2.0: clareza e revisão de língua ───────────────────────────────────────────────
+check("J05 'busca a tutela do Poder Judiciário'", "J05" in ids(
+    "A autora busca a tutela do Poder Judiciário para reaver o valor."))
+check("J06 'por fim, e não menos importante'", "J06" in ids(
+    "Por fim, e não menos importante, houve cobrança em dobro."))
+check("J13 adjetivo genérico", "J13" in ids("Os juros são exorbitantes e a autora virou eterna devedora."))
+check("J13 'nítido' sem o substantivo vigiado não dispara", "J13" not in ids(
+    "A imagem do documento está nítida."))
+
+longo = ("A parte autora, que contratou o empréstimo em 10/01/2025, o qual previa parcelas "
+         "mensais que, segundo a cláusula 7, seriam descontadas em folha de pagamento, teve "
+         "descontados valores superiores aos contratados ao longo de todo o ano, sem que o "
+         "banco, mesmo notificado em 13/08/2025 por carta com aviso de recebimento, devolvesse "
+         "a diferença apurada nos extratos juntados aos autos com a petição inicial.")
+check("J34 período acima de 60 palavras", "J34" in ids(longo))
+check("J34 pedidos separados por ponto e vírgula não disparam", "J34" not in ids(
+    "Requer: " + "; ".join(f"(a{k}) a citação do réu para responder no prazo legal de quinze "
+                           f"dias úteis" for k in range(6)) + "."))
+check("J34 período curto não dispara", "J34" not in ids("A autora pagou em 10/08/2026."))
+
+r09 = jm.analisar(["Ademais, o réu sabia.", "Ademais, o réu recebeu.", "Ademais, o réu calou."])
+check("J09 três parágrafos com a mesma abertura", any(
+    o["padrao"] == "J09" and o["indice"] == 0 for o in r09["ocorrencias"]))
+check("J09 itens de lista com a mesma abertura não disparam", "J09" not in jm.analisar(
+    ["a) a citação do réu;", "b) a citação do corréu;", "c) a citação do terceiro."])["por_padrao"])
+
+check("P01 hífen de quebra de linha", "P01" in ids("O contra- to foi assinado em 2025."))
+check("P01 hífen suspenso não dispara", "P01" not in ids("Atende micro- e pequenas empresas."))
+check("P01 palavra composta não dispara", "P01" not in ids("Houve decisão-surpresa."))
+check("P01 não é risca de J01", "J01" not in ids("O contra- to foi assinado em 2025."))
+for frase in ("A partir de agora, e à partir de amanhã.", "Requer à Vossa Excelência a citação.",
+              "Entregou o documento à ele.", "Passou à pagar a dívida."):
+    check(f"P02 crase indevida: {frase[:28]}", "P02" in ids(frase))
+check("P02 crase legítima não dispara", "P02" not in ids(
+    "Entregou à autora e à mulher dele; foi à audiência às 14h."))
+
 # ── J04 âncora repetida (escala de documento) ────────────────────────────────────────
 seis = [f"A notificação de 13/08/2026 foi recebida, fato {k}." for k in range(6)]
 r04 = jm.analisar(seis)
