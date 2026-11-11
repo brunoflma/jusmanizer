@@ -125,7 +125,7 @@ parecer um. Regra: zero risca no corpo autoral. Cabendo vírgula, ponto final, c
 parênteses, usa-se isso, inclusive no aposto. Sobram duas exceções: transcrição literal (a
 pontuação é da fonte) e intervalo numérico (`2019–2021`, `arts. 1º–5º`, `fls. 12–18`).
 **Nunca conte o hífen** de palavra composta ou de número: `decisão-surpresa`, `dar-se-á`,
-`comporta-se`, `sub-rogação`, `1534909-1`, `0000000-00.0000.0.00.0000` são ortografia.
+`comporta-se`, `sub-rogação`, `7654321-0`, `0000000-00.0000.0.00.0000` são ortografia.
 
 **Antes:**
 > Não há documento novo — os fatos são os da inicial.
@@ -772,6 +772,7 @@ python scripts/jusmanizer.py peca.md --ignorar-ancora NUMERO-DOS-AUTOS
 
 ## Fontes
 
-- [blader/humanizer](https://github.com/blader/humanizer) 3.1.0, a base do catálogo.
+- [blader/humanizer](https://github.com/blader/humanizer), a base do catálogo, conferida até a
+  4.0.0.
 - Wikipedia, [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing),
   a fonte original dos padrões.

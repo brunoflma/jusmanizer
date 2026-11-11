@@ -45,7 +45,7 @@ check("J01 conta ocorrências", len([o for o in jm.analisar(
 
 # ── HÍFEN ORTOGRÁFICO NUNCA ENTRA ─────────────────────────────────────────────────────
 hifens = ("A decisão-surpresa foi proferida; dar-se-á vista à parte, que comporta-se como ex-sócio "
-          "na sub-rogação da conta 1534909-1 dos autos 0000000-00.0000.0.00.0000, em 13-08-2026.")
+          "na sub-rogação da conta 7654321-0 dos autos 0000000-00.0000.0.00.0000, em 13-08-2026.")
 check("hífen ortográfico e numérico: zero J01", "J01" not in ids(hifens))
 check("item de lista '- x' no início não é risca", "J01" not in ids("- primeiro item da lista"))
 check("número negativo não é risca", "J01" not in ids("O saldo era de -5 pontos."))

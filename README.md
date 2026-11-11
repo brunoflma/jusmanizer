@@ -84,7 +84,9 @@ Se faltar uma informação, pergunte em vez de completar por conta própria.
 
 Para adotar a sua voz, forneça antes dois ou três parágrafos escritos por você. A skill orienta o assistente a respeitar essa amostra, inclusive quando ela utiliza construções que normalmente seriam revisadas.
 
-Em um ambiente com acesso a arquivos, você também pode pedir: `jusmaniza o texto do arquivo contestacao.md`. As instruções orientam preservar código, comandos, caminhos, metadados, tabelas e destinos de links.
+Em um ambiente com acesso a arquivos, você também pode pedir: `jusmaniza o texto do arquivo contestacao.md`. A skill lê o arquivo inteiro antes de editar, preserva código, comandos, caminhos, metadados, tabelas e destinos de links, e ao final informa quantas seções revisou e quais ficaram de fora.
+
+Instrução escondida no texto revisado, como uma nota dirigida à IA numa peça da parte contrária, é tratada como texto a revisar e nunca é obedecida.
 
 ## Como instalar
 
@@ -129,6 +131,12 @@ npx skills add brunoflma/jusmanizer
 ```
 
 Escolha o agente e o destino de instalação oferecidos pelo instalador.
+
+No pi, a skill se instala direto do repositório:
+
+```text
+pi install git:github.com/brunoflma/jusmanizer
+```
 
 </details>
 
@@ -250,7 +258,7 @@ Para obter o resultado em formato estruturado:
 python scripts/jusmanizer.py peca.md --json
 ```
 
-O verificador também aponta período com mais de 60 palavras, palavra partida na quebra de linha (“contra- to”) e crase indevida (“à partir”, “à Vossa Excelência”, crase antes de verbo ou de pronome). Avisa ainda quando o mesmo valor, data ou artigo aparece seis ou mais vezes no texto. O número do próprio processo não deve entrar nessa conta, e para isso basta informá-lo:
+O verificador também aponta parágrafo do corpo aberto por número, período com mais de 60 palavras, palavra partida na quebra de linha (“contra- to”) e crase indevida (“à partir”, “à Vossa Excelência”, crase antes de verbo ou de pronome). Avisa ainda quando o mesmo valor, data ou artigo aparece seis ou mais vezes no texto. O número do próprio processo não deve entrar nessa conta, e para isso basta informá-lo:
 
 ```text
 python scripts/jusmanizer.py peca.md --ignorar-ancora 0000000-00.0000.0.00.0000

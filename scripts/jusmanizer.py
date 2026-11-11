@@ -11,7 +11,7 @@ redige. O módulo devolve a lista; a skill `jusmanizer` (SKILL.md) e o redator f
 
 Regras que valem para tudo aqui:
   · O hífen `-` (U+002D) dentro de palavra ou número NUNCA é acusado. `decisão-surpresa`,
-    `dar-se-á`, `1534909-1`, `0000000-00.0000.0.00.0000` são ortografia.
+    `dar-se-á`, `7654321-0`, `0000000-00.0000.0.00.0000` são ortografia.
   · Intervalo numérico (`2019–2021`, `arts. 1º–5º`, `fls. 12–18`) é isento de risca.
   · O chamador é quem exclui transcrição literal. Este módulo mede o que recebe.
 
@@ -30,6 +30,7 @@ fora do repositório.
     fórmula forense, hora, URL e rótulo. É quase o dobro das riscas: o dois-pontos era o remédio
     que o estilo recomendava para o travessão, e virou a forma dominante da mesma emenda.
   · Outros padrões acusados no mesmo texto: J03, J06, J09, J12, J17.
+A medida é do detector daquela data; J19, J34, P01 e P02 vieram depois e não entraram nela.
 Quem recalibrar, recalibre sobre texto real do mesmo tamanho, nunca sobre exemplo fabricado.
 
 Stdlib pura.
