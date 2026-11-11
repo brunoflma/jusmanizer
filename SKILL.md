@@ -14,7 +14,7 @@ description: |
   revisar o arquivo da peça.
 license: MIT
 metadata:
-  version: "1.4.0"
+  version: "1.4.1"
 ---
 
 # Jusmanizer: remover traços de IA do texto jurídico

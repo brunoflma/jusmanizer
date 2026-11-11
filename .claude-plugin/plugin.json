@@ -1,7 +1,7 @@
 {
   "name": "jusmanizer",
   "description": "Revisa texto jurídico em português brasileiro (peça, parecer, relatório, comunicado a cliente) para tirar os traços de escrita gerada por IA, corrigir a língua e deixar a leitura rápida para o juiz, sem mudar o que o texto afirma e sem tirar a formalidade forense.",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "author": {
     "name": "Bruno Lima",
     "url": "https://github.com/brunoflma"
