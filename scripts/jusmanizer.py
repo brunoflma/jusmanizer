@@ -39,7 +39,7 @@ from __future__ import annotations
 import re
 from collections import Counter
 
-VERSAO = "1.3.0"
+VERSAO = "1.4.0"
 
 # ── RISCA (J01) ───────────────────────────────────────────────────────────────────────
 # Quatro formas do mesmo tique. Ordem das alternativas importa: a classe Unicode primeiro, o

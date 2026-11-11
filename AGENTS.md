@@ -18,6 +18,8 @@ Python puro. Não há etapa de build.
 - `scripts/validate-package.py` confere a paridade do pacote.
 - `.claude-plugin/plugin.json` e `marketplace.json` descrevem o plugin do Claude Code;
   `.cursor-plugin/plugin.json`, o do Cursor (sem `skills`, para carregar o SKILL.md da raiz).
+- `package.json` faz do repositório um pacote do pi: `pi.skills` aponta para a raiz, e o pi
+  carrega o SKILL.md de lá. Ele não leva `version`, porque o pi instala pelo git.
 - `agents/openai.yaml` traz nome, descrição curta e prompt padrão para agentes compatíveis
   com OpenAI.
 

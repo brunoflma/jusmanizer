@@ -1,0 +1,11 @@
+{
+  "name": "jusmanizer",
+  "private": true,
+  "description": "Remove traços de escrita gerada por IA de texto jurídico em português brasileiro, sem mudar o que ele afirma.",
+  "license": "MIT",
+  "repository": "github:brunoflma/jusmanizer",
+  "keywords": ["pi-package"],
+  "pi": {
+    "skills": ["./"]
+  }
+}
