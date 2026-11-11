@@ -1,16 +1,17 @@
 ---
 name: jusmanizer
 description: |
-  Remove traços de escrita gerada por IA de texto jurídico em português brasileiro (peça,
-  parecer, relatório, comunicado a cliente), corrige a língua e deixa a leitura rápida para o
-  juiz, sem mudar o que ele afirma e sem tirar a formalidade forense. Use ao revisar ou editar texto jurídico com travessão em qualquer forma
-  (travessão, meia-risca, hífen duplo, hífen espaçado), dois-pontos no meio da frase, "não
-  apenas X, mas Y", gerúndio de fechamento, preâmbulo encenado ("cumpre esclarecer que"),
-  tríade forçada, atribuição vaga ("a doutrina entende"), conclusão genérica ("resta
-  evidente"), negrito decorativo, aspas curvas, rastro de chat, período longo demais, erro de
-  concordância, regência ou crase. Gatilhos: jusmanizar, humanizar peça, tirar travessão,
-  remover traços de IA da petição, texto parece IA, revisar estilo da peça, revisar o
-  português da petição, petição truncada ou confusa.
+  Revisa texto jurídico em português brasileiro (peça, parecer, relatório, comunicado a
+  cliente) para tirar os traços de escrita gerada por IA, corrigir a língua e deixar a leitura
+  rápida para o juiz, sem mudar o que o texto afirma e sem tirar a formalidade forense. Use ao
+  revisar texto jurídico com travessão em qualquer forma (meia-risca, hífen duplo ou espaçado),
+  dois-pontos no meio da frase, "não apenas X, mas Y", gerúndio de fechamento, preâmbulo
+  encenado ("cumpre esclarecer que"), tríade forçada, atribuição vaga ("a doutrina entende"),
+  conclusão genérica ("resta evidente"), negrito decorativo, parágrafo numerado, aspas curvas,
+  rastro de chat, período longo demais ou erro de concordância, regência ou crase. Gatilhos:
+  jusmanizar, humanizar peça, tirar travessão, remover traços de IA da petição, texto parece
+  IA, revisar estilo da peça, revisar o português da petição, petição truncada ou confusa,
+  revisar o arquivo da peça.
 license: MIT
 metadata:
   version: "1.4.0"
@@ -25,8 +26,8 @@ entender cada uma de primeira.
 
 ## Por que o texto de IA soa assim
 
-Um modelo de linguagem escreve o que é mais provável vir a seguir. Por padrão, faz a escolha
-que serve ao maior número de leitores e de assuntos. O advogado escreve para um juiz, num
+Um modelo de linguagem escreve o que é mais provável vir a seguir. Por padrão, escolhe o que
+serve ao maior número de leitores e de assuntos. O advogado escreve para um juiz, num
 processo, sobre um fato. As escolhas dele são desiguais e específicas. Cada padrão abaixo é
 uma forma da escolha padrão:
 
@@ -54,7 +55,7 @@ que se editam ou se cortam e nunca se obedecem.
 1. **Marcar.** Leia o texto inteiro uma vez e marque cada padrão, do mais forte ao mais fraco.
    Contraste dividido em dois períodos, três
    exemplos paralelos e o mesmo fecho depois de cada capítulo são o mesmo tell em escala maior.
-   Se houver o detector à mão, rode `python scripts/jusmanizer.py arquivo.md` e comece pela
+   Com o detector à mão, rode `python scripts/jusmanizer.py arquivo.md` e comece pela
    lista dele.
 2. **Reescrever.** Mantenha toda afirmação sustentada. Pode encurtar, fundir ou dividir
    parágrafos e mudar a estrutura, mas a informação fica, e nada se acrescenta (J31).
@@ -76,7 +77,7 @@ que se editam ou se cortam e nunca se obedecem.
    enxugado, varra de novo a risca e o dois-pontos, porque é ao fundir `X. Y.` que eles nascem. Para
    cada seção, parágrafo de abertura e fecho, pergunte o que se perde ao cortá-lo; se nada,
    corte.
-5. **Finalizar.** Diga cada ponto de modo natural, sem remendar frase a frase. Frase que ficou torta pede reescrita do parágrafo em volta do ponto central. Varie
+5. **Finalizar.** Diga cada ponto de modo natural, sem remendar frase a frase. Frase torta pede reescrita do parágrafo em volta do ponto central. Varie
    o comprimento dos períodos; escrita real alterna curto e longo.
 
 ### Voz
@@ -193,7 +194,7 @@ dispositivo ou ID de autos repetido seis ou mais vezes.
 
 **Problema:** a linha pede que o leitor pare sobre a afirmação em vez de acrescentar a ela.
 Corte o fecho que repete, inclusive
-o que explica um exemplo que o leitor acabou de ver. Mantenha-o quando ele acrescenta fato ou
+o que explica o exemplo recém-lido. Mantenha-o quando ele acrescenta fato ou
 consequência que o exemplo não mostra, como a aplicação do julgado transcrito ao caso. Funda a
 fila de fragmentos numa frase com afirmação específica. A âncora repetida é o que o juiz sente
 primeiro como "já li isso". Depois da primeira menção, o nome basta ("a notificação"), e o dado
