@@ -20,6 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 SAIDAS = (DOCS / "cover.png", DOCS / "assets/social-preview.png")
 LARGURA, ALTURA = 1280, 640
+PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
 # Ordem de tentativa. O Chrome vem primeiro: medido em 11/11/2026, o `--screenshot` do Edge 157
 # sai com código 0 sem gravar a imagem.
 NAVEGADORES = (
@@ -84,6 +85,11 @@ def fotografar(url, destino):
     sys.exit(f"Nenhum navegador gravou {destino.name}.")
 
 
+def validar_png(dados, destino):
+    if dados[:8] != PNG_SIGNATURE:
+        raise RuntimeError(f"{destino}: navegador não gravou um PNG válido.")
+
+
 def main():
     regras, grupos = atualizar_contagem()
     servidor = servir()
@@ -92,7 +98,7 @@ def main():
         for destino in SAIDAS:
             fotografar(url, destino)
             dados = destino.read_bytes()
-            assert dados[:8] == b"\x89PNG\r\n\x1a\n", destino
+            validar_png(dados, destino)
             largura = int.from_bytes(dados[16:20], "big")
             altura = int.from_bytes(dados[20:24], "big")
             print(f"{destino.relative_to(ROOT)}: {largura} x {altura}, {regras} regras em {grupos} grupos")
