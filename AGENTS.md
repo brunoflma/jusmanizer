@@ -68,3 +68,7 @@ Linguagem simples em comentário, prompt, documentação, mensagem de validaçã
 - Nada de travessão; vírgula, ponto, dois-pontos antes de lista.
 - Mantenha identificadores exatos, comandos, caminhos, campos, citações, expressões vigiadas
   e exemplos que carregam comportamento.
+
+## Orientação Web consultiva
+
+Ao alterar as superfícies web descritas em [docs/modern-web-guidance.md](docs/modern-web-guidance.md), consulte o guia oficial e use Baseline Widely Available como alvo inicial. A adoção não muda o núcleo do produto, não instala componentes globais, não autoriza publicação nem adiciona scanner obrigatório ao CI. Preserve todas as regras e testes existentes; registre o que foi verificado no navegador e o que ficou pendente.
